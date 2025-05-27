@@ -17,10 +17,12 @@ class CounterChangeNotifier extends ChangeNotifier {
         curve: Curves.ease,
       );
     }
+    notifyListeners();
   }
 
-  counterSkip() {
-    counter += (3 - counter);
+  counterSkip({required int lenght}) {
+    counter += (lenght - 1) - counter;
     controller.jumpToPage(counter);
+    notifyListeners();
   }
 }
