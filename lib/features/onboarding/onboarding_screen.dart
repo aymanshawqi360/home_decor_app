@@ -28,27 +28,28 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     super.dispose();
   }
 
+  final listOnboarding = OnboardingImagesAndTitlesAndDescriptions.list;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView.builder(
         physics: NeverScrollableScrollPhysics(),
         controller: CounterChangeNotifier.counterChangeNotifier.controller,
-        itemCount: 4,
+        itemCount: listOnboarding.length,
         itemBuilder: (context, index) {
-          final listOnboarding =
-              OnboardingImagesAndTitlesAndDescriptions.list[index];
+          final listIndex = listOnboarding[index];
           return Padding(
             padding: EdgeInsets.only(bottom: 29.h),
             child: Column(
               children: [
-                onboardingFrameAndImageAndArrowRight(
-                  image: listOnboarding.image.toString(),
+                OnboardingFrameAndImageAndArrowRight(
+                  image: listIndex.image.toString(),
+                  lenghtList: listOnboarding.length,
                 ),
                 verticalSpace(76),
 
                 Text(
-                  listOnboarding.title ?? "Confortable Space",
+                  listIndex.title ?? "Confortable Space",
                   style: TextStyles.font25LinenSemiBold,
                 ),
                 Padding(
@@ -58,7 +59,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                   child: Text(
                     textAlign: TextAlign.center,
-                    listOnboarding.descriptions ??
+                    listIndex.descriptions ??
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
                     style: TextStyles.font10DarkGrayishBrownMedium,
                   ),

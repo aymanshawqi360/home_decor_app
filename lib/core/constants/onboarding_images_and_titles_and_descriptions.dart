@@ -4,7 +4,7 @@ class OnboardingImagesAndTitlesAndDescriptions {
   String? title;
   String? image;
   String? descriptions;
-  OnboardingImagesAndTitlesAndDescriptions({
+  OnboardingImagesAndTitlesAndDescriptions._({
     required this.descriptions,
     required this.title,
     required this.image,
@@ -14,25 +14,25 @@ class OnboardingImagesAndTitlesAndDescriptions {
       list;
 
   static List<OnboardingImagesAndTitlesAndDescriptions> list = [
-    OnboardingImagesAndTitlesAndDescriptions(
+    OnboardingImagesAndTitlesAndDescriptions._(
       descriptions:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
       title: "Confortable Space",
       image: AppAssets.imageAndSvg.onboardingPageOne,
     ),
-    OnboardingImagesAndTitlesAndDescriptions(
+    OnboardingImagesAndTitlesAndDescriptions._(
       descriptions:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
       title: "Modern Design",
       image: AppAssets.imageAndSvg.onboardingPageTwo,
     ),
-    OnboardingImagesAndTitlesAndDescriptions(
+    OnboardingImagesAndTitlesAndDescriptions._(
       descriptions:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
       title: "Styled Living",
       image: AppAssets.imageAndSvg.onboardingPageThree,
     ),
-    OnboardingImagesAndTitlesAndDescriptions(
+    OnboardingImagesAndTitlesAndDescriptions._(
       descriptions:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
       title: "Relaxing Furniture",

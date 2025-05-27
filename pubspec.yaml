@@ -40,6 +40,8 @@ dependencies:
   google_fonts: ^6.2.1
   # SVG rendering and widget library for Flutter
   flutter_svg: ^2.1.0
+  # for splash screen
+  flutter_native_splash: ^2.4.6
 
 dev_dependencies:
   flutter_test:
