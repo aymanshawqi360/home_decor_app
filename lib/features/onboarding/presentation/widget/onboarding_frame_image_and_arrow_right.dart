@@ -7,9 +7,14 @@ import 'package:home_decor_app/core/helper/spacing.dart';
 import 'package:home_decor_app/core/theme/colors.dart';
 import 'package:home_decor_app/core/theme/styles.dart';
 
-class onboardingFrameAndImageAndArrowRight extends StatelessWidget {
+class OnboardingFrameAndImageAndArrowRight extends StatelessWidget {
   final String image;
-  const onboardingFrameAndImageAndArrowRight({super.key, required this.image});
+  final int lenghtList;
+  const OnboardingFrameAndImageAndArrowRight({
+    super.key,
+    required this.image,
+    required this.lenghtList,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +37,9 @@ class onboardingFrameAndImageAndArrowRight extends StatelessWidget {
 
         GestureDetector(
           onTap: () {
-            CounterChangeNotifier.counterChangeNotifier.counterSkip();
+            CounterChangeNotifier.counterChangeNotifier.counterSkip(
+              lenght: lenghtList,
+            );
           },
           child:
               CounterChangeNotifier.counterChangeNotifier.counter == 3

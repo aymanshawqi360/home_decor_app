@@ -29,32 +29,56 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     super.dispose();
   }
 
+  final listOnboarding = OnboardingImagesAndTitlesAndDescriptions.list;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView.builder(
         physics: NeverScrollableScrollPhysics(),
         controller: CounterChangeNotifier.counterChangeNotifier.controller,
+<<<<<<< HEAD:lib/features/onboarding/presentation/pages/onboarding_screen.dart
         itemCount: ListOnboardingDescription.listOnboarding.length,
         itemBuilder: (context, index) {
           final listOnboarding =
               ListOnboardingDescription.listOnboarding[index];
+=======
+        itemCount: listOnboarding.length,
+        itemBuilder: (context, index) {
+          final listIndex = listOnboarding[index];
+>>>>>>> features/login_ui:lib/features/onboarding/onboarding_screen.dart
           return Padding(
             padding: EdgeInsets.only(bottom: 29.h),
             child: Column(
               children: [
-                onboardingFrameAndImageAndArrowRight(
-                  image: listOnboarding.image.toString(),
+                OnboardingFrameAndImageAndArrowRight(
+                  image: listIndex.image.toString(),
+                  lenghtList: listOnboarding.length,
                 ),
                 verticalSpace(76),
 
+<<<<<<< HEAD:lib/features/onboarding/presentation/pages/onboarding_screen.dart
                 TextTitle(onboardingModle: listOnboarding),
+=======
+                Text(
+                  listIndex.title ?? "Confortable Space",
+                  style: TextStyles.font25LinenSemiBold,
+                ),
+>>>>>>> features/login_ui:lib/features/onboarding/onboarding_screen.dart
                 Padding(
                   padding: EdgeInsets.symmetric(
                     horizontal: 25.w,
                     vertical: 26.h,
                   ),
+<<<<<<< HEAD:lib/features/onboarding/presentation/pages/onboarding_screen.dart
                   child: TextDescription(onboardingModle: listOnboarding),
+=======
+                  child: Text(
+                    textAlign: TextAlign.center,
+                    listIndex.descriptions ??
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+                    style: TextStyles.font10DarkGrayishBrownMedium,
+                  ),
+>>>>>>> features/login_ui:lib/features/onboarding/onboarding_screen.dart
                 ),
                 Spacer(),
                 Padding(
