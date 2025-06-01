@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:home_decor_app/core/helper/app_assets.dart';
+import 'package:home_decor_app/core/helper/extensions.dart';
 import 'package:home_decor_app/core/helper/spacing.dart';
+import 'package:home_decor_app/core/routes/routes.dart';
 import 'package:home_decor_app/core/theme/styles.dart';
 import 'package:home_decor_app/core/widgets/app_text_button.dart';
 import 'package:home_decor_app/core/widgets/app_text_form_field.dart';
@@ -129,20 +131,29 @@ class LoginScreen extends StatelessWidget {
                   ),
                   verticalSpace(19.12),
 
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: "Don’t have an account? ",
-                          style: TextStyles.font13DarkGrayishBrownLight(
-                            context,
+                  GestureDetector(
+                    onTap: () {
+                      // context.pushNamed(Routes.signUp);
+                      context.pushNamedAndRemoveUntil(
+                        Routes.signUp,
+                        predicate: (_) => false,
+                      );
+                    },
+                    child: RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: "Don’t have an account? ",
+                            style: TextStyles.font13DarkGrayishBrownLight(
+                              context,
+                            ),
                           ),
-                        ),
-                        TextSpan(
-                          text: " Sign Up",
-                          style: TextStyles.font13LigthBrownLight(context),
-                        ),
-                      ],
+                          TextSpan(
+                            text: " Sign Up",
+                            style: TextStyles.font13LigthBrownLight(context),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],

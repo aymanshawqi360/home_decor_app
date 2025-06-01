@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:home_decor_app/core/theme/styles.dart';
-import 'package:home_decor_app/features/onboarding/dowmin/entities/onboarding_modle.dart';
+import 'package:home_decor_app/features/onboarding/domain/entities/onboarding_modle.dart';
 
 class TextDescription extends StatelessWidget {
   final OnboardingModle onboardingModle;
