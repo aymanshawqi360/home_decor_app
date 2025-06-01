@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:home_decor_app/core/routes/routes.dart';
+import 'package:home_decor_app/features/login/presentation/pages/login_screen.dart';
 import 'package:home_decor_app/features/onboarding/presentation/pages/onboarding_screen.dart';
 
 class AppRouter {
@@ -11,6 +12,8 @@ class AppRouter {
             return OnboardingScreen();
           },
         );
+      case Routes.login:
+        return MaterialPageRoute(builder: (_) => LoginScreen());
 
       default:
         return null;

@@ -10,4 +10,6 @@ class AppAssets {
   String onboardingPageFoure = "assets/images/onboarding_page_foure.png";
 
   String arrowRight = "assets/svg/arrow_right.svg";
+  String facebookIcon = "assets/svg/facebook_icon.svg";
+  String googleIcon = "assets/svg/google_icon.svg";
 }

@@ -25,4 +25,91 @@ class TextStyles {
     fontWeight: FontWeightHelper.regular,
     color: ColorsMananger.darkTaupe,
   );
+  static TextStyle font20LigthBrownSemiBold(BuildContext context) {
+    return GoogleFonts.poppins(
+      fontSize: MediaQuery.textScalerOf(context).scale(20),
+
+      fontWeight: FontWeightHelper.semiBold,
+      color: ColorsMananger.ligthBrown,
+    );
+  }
+
+  static TextStyle font20LigthPinkSemiBold(BuildContext context) {
+    return GoogleFonts.poppins(
+      fontSize: MediaQuery.textScalerOf(context).scale(20),
+
+      fontWeight: FontWeightHelper.semiBold,
+      color: ColorsMananger.ligthPink,
+    );
+  }
+
+  static TextStyle font20DarkGrayishBrownSemiBold(BuildContext context) {
+    return GoogleFonts.poppins(
+      // fontSize: 20.sp,
+      fontSize: MediaQuery.textScalerOf(context).scale(20),
+      fontWeight: FontWeightHelper.semiBold,
+      color: ColorsMananger.darkGrayishBrown,
+    );
+  }
+
+  static TextStyle font14DarkGrayishBrownRegular(BuildContext context) {
+    return GoogleFonts.leagueSpartan(
+      // fontSize: 14.sp,
+      fontSize: MediaQuery.textScalerOf(context).scale(14),
+      fontWeight: FontWeightHelper.regular,
+      color: ColorsMananger.darkGrayishBrown,
+    );
+  }
+
+  static TextStyle font15DarkGrayishBrownMedium(BuildContext context) {
+    return GoogleFonts.leagueSpartan(
+      // fontSize: 15.sp,
+      fontSize: MediaQuery.textScalerOf(context).scale(15),
+      fontWeight: FontWeightHelper.medium,
+      color: ColorsMananger.darkGrayishBrown,
+    );
+  }
+
+  static TextStyle font14LightBeigepinkRegular(BuildContext context) {
+    return GoogleFonts.leagueSpartan(
+      fontSize: 14.sp,
+      fontWeight: FontWeightHelper.regular,
+      color: ColorsMananger.lightBeigepink,
+    );
+  }
+
+  static TextStyle font15DarkGrayishBrownRegular(BuildContext context) {
+    return GoogleFonts.leagueSpartan(
+      fontSize: 15.sp,
+      fontWeight: FontWeightHelper.regular,
+      color: ColorsMananger.darkGrayishBrown,
+    );
+  }
+
+  static TextStyle font14DarkGrayishBrownSemiBold(BuildContext context) {
+    return GoogleFonts.leagueSpartan(
+      // fontSize: 14.sp,
+      fontSize: MediaQuery.textScalerOf(context).scale(14),
+      fontWeight: FontWeightHelper.semiBold,
+      color: ColorsMananger.darkGrayishBrown,
+    );
+  }
+
+  static TextStyle font13DarkGrayishBrownLight(BuildContext context) {
+    return GoogleFonts.leagueSpartan(
+      // fontSize: 15.sp,
+      fontSize: MediaQuery.textScalerOf(context).scale(13),
+      fontWeight: FontWeightHelper.light,
+      color: ColorsMananger.darkGrayishBrown,
+    );
+  }
+
+  static TextStyle font13LigthBrownLight(BuildContext context) {
+    return GoogleFonts.leagueSpartan(
+      // fontSize: 15.sp,
+      fontSize: MediaQuery.textScalerOf(context).scale(13),
+      fontWeight: FontWeightHelper.light,
+      color: ColorsMananger.ligthBrown,
+    );
+  }
 }

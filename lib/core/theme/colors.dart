@@ -7,4 +7,5 @@ class ColorsMananger {
   static const Color darkGrayishBrown = Color(0xFF363130);
   static const Color ligthBrown = Color(0xFFCC7861);
   static const Color darkTaupe = Color(0xFF4B4544);
+  static const Color lightBeigepink = Color(0xFFDCBEB6);
 }
