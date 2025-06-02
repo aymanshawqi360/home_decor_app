@@ -35,10 +35,7 @@ class SetPasswordScreen extends StatelessWidget {
                     style: TextStyles.font14DarkBrownRegular,
                   ),
                   verticalSpace(52),
-                  Text(
-                    "Password",
-                    style: TextStyles.font15darkGrayishBrownMedium,
-                  ),
+                  Text("Password", style: TextStyles.font15DarkBrownMedium),
                   verticalSpace(3.0),
                   AppTextFormField(
                     suffixIcon: GestureDetector(
@@ -59,7 +56,7 @@ class SetPasswordScreen extends StatelessWidget {
                   verticalSpace(16.0),
                   Text(
                     "Confirm Password",
-                    style: TextStyles.font15darkGrayishBrownMedium,
+                    style: TextStyles.font15DarkBrownMedium,
                   ),
                   verticalSpace(3.0),
                   AppTextFormField(

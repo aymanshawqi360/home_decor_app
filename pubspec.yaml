@@ -42,6 +42,8 @@ dependencies:
   flutter_svg: ^2.1.0
   # for splash screen
   flutter_native_splash: ^2.4.6
+  # carousel slider widget, support infinite scroll and custom child widget.
+  carousel_slider: ^5.0.0
 
 dev_dependencies:
   flutter_test:

@@ -155,10 +155,40 @@ class TextStyles {
     fontWeight: FontWeightHelper.medium,
     color: ColorsMananger.darkBrown,
   );
-  static TextStyle font15darkGrayishBrownMedium = GoogleFonts.poppins(
-    fontSize: 15.sp,
+  static TextStyle font22LigthBrownSemiBold = GoogleFonts.poppins(
+    fontSize: 22.sp,
     // fontSize: MediaQuery.textScalerOf(context).scale(15),
+    fontWeight: FontWeightHelper.semiBold,
+    color: ColorsMananger.ligthBrown,
+  );
+  static TextStyle font15LigthBrownSemiBold = GoogleFonts.poppins(
+    fontSize: 15.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    color: ColorsMananger.ligthBrown,
+  );
+  static TextStyle font20DarkTaupeMedium = GoogleFonts.poppins(
+    fontSize: 20.sp,
     fontWeight: FontWeightHelper.medium,
-    color: ColorsMananger.darkBrown,
+    color: ColorsMananger.darkTaupe,
+  );
+  static TextStyle font15DarkTaupeLight = GoogleFonts.poppins(
+    fontSize: 15.sp,
+    fontWeight: FontWeightHelper.light,
+    color: ColorsMananger.darkTaupe,
+  );
+  static TextStyle font11DarkTaupeRegular = GoogleFonts.leagueSpartan(
+    fontSize: 11.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorsMananger.darkTaupe,
+  );
+  static TextStyle font12DarkTaupeLight = GoogleFonts.leagueSpartan(
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.light,
+    color: ColorsMananger.darkTaupe,
+  );
+  static TextStyle font15LigthBrownMedium = GoogleFonts.poppins(
+    fontSize: 15.sp,
+    fontWeight: FontWeightHelper.medium,
+    color: ColorsMananger.ligthBrown,
   );
 }

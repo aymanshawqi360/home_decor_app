@@ -84,7 +84,16 @@ class LoginScreen extends StatelessWidget {
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [AppTextButton()],
+                  children: [
+                    AppTextButton(
+                      onTap: () {
+                        context.pushNamedAndRemoveUntil(
+                          Routes.homeScreen,
+                          predicate: (_) => false,
+                        );
+                      },
+                    ),
+                  ],
                 ),
                 verticalSpace(18.12),
                 GestureDetector(
