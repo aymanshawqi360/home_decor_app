@@ -21,7 +21,7 @@ class AppRouter {
       case Routes.forgotPassword:
         return MaterialPageRoute(builder: (_) => ForgotPasswordScreen());
       // case Routes.setPassword:
-      //   return MaterialPageRoute(builder: (_) => ForgotPasswordScreen());
+      //   return MaterialPageRoute(builder: (_) => SetPasswordScreen());
 
       default:
         return null;
