@@ -87,10 +87,15 @@ class LoginScreen extends StatelessWidget {
                   children: [AppTextButton()],
                 ),
                 verticalSpace(18.12),
-                Text(
-                  textScaler: TextScaler.linear(1.0),
-                  "Forgot Password?",
-                  style: TextStyles.font14DarkGrayishBrownSemiBold(context),
+                GestureDetector(
+                  onTap: () {
+                    context.pushNamed(Routes.forgotPassword);
+                  },
+                  child: Text(
+                    textScaler: TextScaler.linear(1.0),
+                    "Forgot Password?",
+                    style: TextStyles.font14DarkGrayishBrownSemiBold(context),
+                  ),
                 ),
               ],
             ),
