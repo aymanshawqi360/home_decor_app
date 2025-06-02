@@ -155,4 +155,10 @@ class TextStyles {
     fontWeight: FontWeightHelper.medium,
     color: ColorsMananger.darkBrown,
   );
+  static TextStyle font15darkGrayishBrownMedium = GoogleFonts.poppins(
+    fontSize: 15.sp,
+    // fontSize: MediaQuery.textScalerOf(context).scale(15),
+    fontWeight: FontWeightHelper.medium,
+    color: ColorsMananger.darkBrown,
+  );
 }

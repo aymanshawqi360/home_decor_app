@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:home_decor_app/core/helper/extensions.dart';
 import 'package:home_decor_app/core/helper/spacing.dart';
+import 'package:home_decor_app/core/routes/routes.dart';
 import 'package:home_decor_app/core/theme/colors.dart';
 import 'package:home_decor_app/core/theme/styles.dart';
 import 'package:home_decor_app/core/widgets/app_text_button.dart';
@@ -77,7 +79,12 @@ class ForgotPasswordScreen extends StatelessWidget {
                       ],
                     ),
                     verticalSpace(47.66),
-                    AppTextButton(text: "Next", onTap: () {}),
+                    AppTextButton(
+                      text: "Next",
+                      onTap: () {
+                        context.pushNamed(Routes.setPassword);
+                      },
+                    ),
                   ],
                 ),
               ),
