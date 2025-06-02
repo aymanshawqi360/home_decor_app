@@ -136,4 +136,23 @@ class TextStyles {
         fontWeight: FontWeightHelper.semiBold,
         color: ColorsMananger.darkBrown,
       );
+  static TextStyle font20darkGrayishBrownSemiBold = GoogleFonts.poppins(
+    fontSize: 20.sp,
+    // fontSize: MediaQuery.textScalerOf(context).scale(15),
+    fontWeight: FontWeightHelper.semiBold,
+    color: ColorsMananger.darkGrayishBrown,
+  );
+
+  static TextStyle font14DarkBrownRegular = GoogleFonts.leagueSpartan(
+    fontSize: 14.sp,
+    // fontSize: MediaQuery.textScalerOf(context).scale(15),
+    fontWeight: FontWeightHelper.regular,
+    color: ColorsMananger.darkBrown,
+  );
+  static TextStyle font15DarkBrownMedium = GoogleFonts.poppins(
+    fontSize: 15.sp,
+    // fontSize: MediaQuery.textScalerOf(context).scale(15),
+    fontWeight: FontWeightHelper.medium,
+    color: ColorsMananger.darkBrown,
+  );
 }
