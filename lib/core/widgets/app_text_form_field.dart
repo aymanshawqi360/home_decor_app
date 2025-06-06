@@ -35,11 +35,7 @@ class AppTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      // style: TextStyles.font14DarkGrayishBrownRegular(context),
-      style: TextStyle(
-        color: ColorsMananger.darkGrayishBrown,
-        //   fontSize: MediaQuery.textScalerOf(context).scale(14),
-      ),
+      style: TextStyle(color: ColorsMananger.darkGrayishBrown),
       cursorColor: cursorColor ?? ColorsMananger.darkGrayishBrown,
 
       decoration: InputDecoration(
@@ -61,6 +57,7 @@ class AppTextFormField extends StatelessWidget {
               borderRadius: BorderRadius.circular(25),
             ),
         suffixIcon: suffixIcon,
+
         isDense: true,
         filled: true,
         fillColor: fillColor ?? ColorsMananger.linen,

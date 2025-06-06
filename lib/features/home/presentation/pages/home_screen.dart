@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:home_decor_app/core/helper/app_assets.dart';
 import 'package:home_decor_app/core/helper/extensions.dart';
 import 'package:home_decor_app/core/helper/spacing.dart';
+import 'package:home_decor_app/core/routes/routes.dart';
 import 'package:home_decor_app/core/theme/colors.dart';
 import 'package:home_decor_app/core/theme/styles.dart';
 import 'package:home_decor_app/features/home/presentation/widget/container_best_seller.dart';
@@ -84,12 +85,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            CircleAvatar(
-              backgroundColor: ColorsMananger.ligthPink,
-              child: SvgPicture.asset(
-                AppAssets.imageAndSvg.searchIcon,
-                width: context.screenWidth / 40,
-                height: context.screenHeight / 40,
+            GestureDetector(
+              onTap: () {
+                context.pushNamed(Routes.search);
+              },
+              child: CircleAvatar(
+                backgroundColor: ColorsMananger.ligthPink,
+                child: SvgPicture.asset(
+                  AppAssets.imageAndSvg.searchIcon,
+                  width: context.screenWidth / 40,
+                  height: context.screenHeight / 40,
+                ),
               ),
             ),
           ],

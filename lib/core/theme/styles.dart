@@ -25,14 +25,12 @@ class TextStyles {
     fontWeight: FontWeightHelper.regular,
     color: ColorsMananger.darkTaupe,
   );
-  static TextStyle font20LigthBrownSemiBold(BuildContext context) {
-    return GoogleFonts.poppins(
-      //  fontSize: MediaQuery.textScalerOf(context).scale(20),
-      fontSize: 20.sp,
-      fontWeight: FontWeightHelper.semiBold,
-      color: ColorsMananger.ligthBrown,
-    );
-  }
+  static TextStyle font20LigthBrownSemiBold = GoogleFonts.poppins(
+    //  fontSize: MediaQuery.textScalerOf(context).scale(20),
+    fontSize: 20.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    color: ColorsMananger.ligthBrown,
+  );
 
   static TextStyle font20LigthPinkSemiBold(BuildContext context) {
     return GoogleFonts.poppins(
@@ -190,5 +188,10 @@ class TextStyles {
     fontSize: 15.sp,
     fontWeight: FontWeightHelper.medium,
     color: ColorsMananger.ligthBrown,
+  );
+  static TextStyle font13darkGrayLight = GoogleFonts.leagueSpartan(
+    fontSize: 13.sp,
+    fontWeight: FontWeightHelper.light,
+    color: ColorsMananger.darkGray,
   );
 }

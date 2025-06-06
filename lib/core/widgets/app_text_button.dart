@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:home_decor_app/core/helper/extensions.dart';
 
 import 'package:home_decor_app/core/theme/colors.dart';
 import 'package:home_decor_app/core/theme/styles.dart';
@@ -25,9 +26,10 @@ class AppTextButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: width ?? MediaQuery.sizeOf(context).height / 5,
-        // 186,
-        height: height ?? MediaQuery.sizeOf(context).height / 20,
+        width: width ?? context.screenWidth / 5,
+
+        height: height ?? context.screenHeight / 20,
+
         decoration:
             decoration ??
             BoxDecoration(
@@ -37,7 +39,7 @@ class AppTextButton extends StatelessWidget {
         child: Center(
           child: Text(
             text ?? "Log In",
-            style: TextStyles.font20LigthBrownSemiBold(context),
+            style: TextStyles.font20LigthBrownSemiBold,
           ),
         ),
       ),
