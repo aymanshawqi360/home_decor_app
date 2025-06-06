@@ -44,6 +44,16 @@ dependencies:
   flutter_native_splash: ^2.4.6
   # carousel slider widget, support infinite scroll and custom child widget.
   carousel_slider: ^5.0.0
+  # Network
+  dio: ^5.8.0+1
+  retrofit: ^4.4.2
+  retrofit_generator: ^9.2.0
+  pretty_dio_logger: ^1.4.0
+  # Automatically generate code for converting to and from JSON by annotating Dart classes
+  json_serializable: ^6.9.5
+  json_annotation: ^4.9.0
+  # A build system for Dart code generation and modular compilation.
+  build_runner: ^2.4.15
 
 dev_dependencies:
   flutter_test:
