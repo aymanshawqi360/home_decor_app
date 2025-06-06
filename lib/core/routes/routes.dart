@@ -5,4 +5,6 @@ class Routes {
   static const String forgotPassword = "/forgotPassword";
   static const String setPassword = "/setPassword";
   static const String homeScreen = "/homeScreen";
+  static const String buttonNavigateBetweenScreen =
+      "/buttonNavigateBetweenScreen";
 }

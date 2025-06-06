@@ -12,4 +12,10 @@ class AppAssets {
   String arrowRight = "assets/svg/arrow_right.svg";
   String facebookIcon = "assets/svg/facebook_icon.svg";
   String googleIcon = "assets/svg/google_icon.svg";
+  String ligthPinkCategories = "assets/svg/ligthPink_categories.svg";
+  String homeIcon = "assets/svg/ligthPink_home_.svg";
+  String profileIcon = "assets/svg/ligthPink_Profile.svg";
+  String wishlistIcon = "assets/svg/ligthPink_wishlist.svg";
+  String cartIcon = "assets/svg/ligthPink_cart.svg";
+  String searchIcon = "assets/svg/search_icon.svg";
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:home_decor_app/core/helper/extensions.dart';
 import 'package:home_decor_app/core/helper/spacing.dart';
 import 'package:home_decor_app/core/theme/colors.dart';
 import 'package:home_decor_app/core/theme/styles.dart';
@@ -11,7 +12,7 @@ class ContainerBestSeller extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 134.0.h,
-      width: MediaQuery.sizeOf(context).width,
+      width: context.screenWidth,
 
       decoration: BoxDecoration(
         color: ColorsMananger.ligthPink,
@@ -31,8 +32,7 @@ class ContainerBestSeller extends StatelessWidget {
                   style: TextStyles.font20DarkTaupeMedium,
                 ),
                 SizedBox(
-                  // width: 253.w,
-                  width: MediaQuery.sizeOf(context).width / 1.3,
+                  width: context.screenWidth / 1.3,
                   child: Text(
                     textScaler: TextScaler.linear(1.0),
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit",

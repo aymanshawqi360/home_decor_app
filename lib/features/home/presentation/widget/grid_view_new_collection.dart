@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:home_decor_app/core/helper/extensions.dart';
 import 'package:home_decor_app/core/helper/spacing.dart';
 import 'package:home_decor_app/core/theme/colors.dart';
 import 'package:home_decor_app/core/theme/styles.dart';
@@ -11,72 +13,86 @@ class GridViewNewCollection extends StatelessWidget {
     return Expanded(
       child: GridView.builder(
         scrollDirection: Axis.vertical,
-        shrinkWrap: true,
-        itemCount: 4,
+
+        itemCount: 6,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 23,
           mainAxisSpacing: 15,
+
           mainAxisExtent: 250,
         ),
         itemBuilder: (context, index) {
-          return Container(
-            // width: 163.w,
-            // height: 235.h,
-            decoration: BoxDecoration(
-              //color: Colors.grey
-            ),
+          return SingleChildScrollView(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  width: MediaQuery.sizeOf(context).width,
-                  // height: 142.h,
-                  height: MediaQuery.sizeOf(context).height / 5.9,
+                  width: context.screenWidth,
+
+                  constraints: BoxConstraints(
+                    maxHeight: context.screenHeight / 7,
+                  ),
+
                   color: Colors.amber,
                 ),
-                Text("Aluminum chair", style: TextStyles.font15DarkBrownMedium),
-                Text(
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-                  style: TextStyles.font12DarkTaupeLight,
-                ),
-                Divider(color: ColorsMananger.ligthPink),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "\$${120.00}",
-                      style: TextStyles.font15LigthBrownMedium,
-                    ),
-                    Row(
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: ColorsMananger.ligthPink,
-                          maxRadius: 13,
-                          minRadius: 13,
-                          child: Center(
-                            child: Icon(
-                              Icons.favorite_rounded,
-                              size: 20,
-                              color: Colors.white,
-                            ),
+                verticalSpace(5),
+                Padding(
+                  padding: EdgeInsets.only(left: 6.w, right: 6.w),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        textScaler: TextScaler.linear(1.0),
+                        "Aluminum chair",
+                        style: TextStyles.font15DarkBrownMedium,
+                      ),
+                      Text(
+                        textScaler: TextScaler.linear(1.0),
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+                        style: TextStyles.font12DarkTaupeLight,
+                      ),
+                      Divider(color: ColorsMananger.ligthPink),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            textScaler: TextScaler.linear(1.0),
+
+                            "\$${120.00}",
+                            style: TextStyles.font15LigthBrownMedium,
                           ),
-                        ),
-                        horizontalSpace(5.23),
-                        CircleAvatar(
-                          backgroundColor: ColorsMananger.ligthPink,
-                          radius: 13,
-                          child: Center(
-                            child: Icon(
-                              Icons.add,
-                              size: 20,
-                              color: Colors.white,
-                            ),
+                          Row(
+                            children: [
+                              CircleAvatar(
+                                backgroundColor: ColorsMananger.ligthPink,
+                                maxRadius: 13,
+                                minRadius: 13,
+                                child: Center(
+                                  child: Icon(
+                                    Icons.favorite_rounded,
+                                    size: 20,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                              horizontalSpace(5.23),
+                              CircleAvatar(
+                                backgroundColor: ColorsMananger.ligthPink,
+                                radius: 13,
+                                child: Center(
+                                  child: Icon(
+                                    Icons.add,
+                                    size: 20,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
