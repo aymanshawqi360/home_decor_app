@@ -5,6 +5,7 @@ import 'package:home_decor_app/features/home/presentation/pages/button_navigate_
 import 'package:home_decor_app/features/home/presentation/pages/home_screen.dart';
 import 'package:home_decor_app/features/login/presentation/pages/login_screen.dart';
 import 'package:home_decor_app/features/onboarding/presentation/pages/onboarding_screen.dart';
+import 'package:home_decor_app/features/search/presentation/pages/search_screen.dart';
 import 'package:home_decor_app/features/set_password/presentation/pages/set_password_screen.dart';
 import 'package:home_decor_app/features/sign_up_screen/presentation/pages/sign_up_screen.dart';
 
@@ -29,6 +30,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => SetPasswordScreen());
       case Routes.homeScreen:
         return MaterialPageRoute(builder: (_) => HomeScreen());
+      case Routes.search:
+        return MaterialPageRoute(builder: (_) => SearchScreen());
 
       default:
         return null;

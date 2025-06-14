@@ -8,6 +8,7 @@ class AppAssets {
   String onboardingPageTwo = "assets/images/onboarding_page_two.png";
   String onboardingPageThree = "assets/images/onboarding_page_three.png";
   String onboardingPageFoure = "assets/images/onboarding_page_foure.png";
+  String filter = "assets/images/Filter.png";
 
   String arrowRight = "assets/svg/arrow_right.svg";
   String facebookIcon = "assets/svg/facebook_icon.svg";
