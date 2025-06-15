@@ -9,7 +9,7 @@ import 'package:home_decor_app/core/theme/colors.dart';
 import 'package:home_decor_app/core/theme/styles.dart';
 import 'package:home_decor_app/features/home/presentation/widget/container_best_seller.dart';
 import 'package:home_decor_app/features/home/presentation/widget/grid_view_new_collection.dart';
-import 'package:home_decor_app/features/home/presentation/widget/home_slider.dart';
+import 'package:home_decor_app/features/home/presentation/widget/slider/home_slider.dart';
 import 'package:home_decor_app/features/home/presentation/widget/list_view_categories.dart';
 
 class HomeScreen extends StatefulWidget {

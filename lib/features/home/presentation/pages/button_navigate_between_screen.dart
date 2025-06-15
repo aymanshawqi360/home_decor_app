@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:home_decor_app/core/di/dependency_injection.dart';
 import 'package:home_decor_app/core/helper/app_assets.dart';
 import 'package:home_decor_app/core/helper/spacing.dart';
 import 'package:home_decor_app/core/theme/colors.dart';
+import 'package:home_decor_app/features/home/presentation/cubit/cubit/slider_cubit.dart';
 import 'package:home_decor_app/features/home/presentation/pages/home_screen.dart';
 
 class ButtonNavigateBetweenScreen extends StatefulWidget {
@@ -17,7 +20,10 @@ class ButtonNavigateBetweenScreen extends StatefulWidget {
 class _ButtonNavigateBetweenScreenState
     extends State<ButtonNavigateBetweenScreen> {
   List<Widget> pages = [
-    HomeScreen(),
+    BlocProvider(
+      create: (context) => SliderCubit(getIt())..getSlider(),
+      child: HomeScreen(),
+    ),
     Container(color: Colors.amber),
     Container(color: Colors.red),
     Container(color: Colors.green),
