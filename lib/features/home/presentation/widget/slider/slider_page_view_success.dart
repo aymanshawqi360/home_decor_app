@@ -36,16 +36,17 @@ class _SliderPageViewSuccessState extends State<SliderPageViewSuccess> {
     Timer.periodic(Duration(seconds: 3), (_) {
       if (timerIndex < widget._sliderList.length - 1) {
         timerIndex++;
+        _controller.animateToPage(
+          timerIndex,
+          duration: Duration(milliseconds: 500),
+          curve:
+              timerIndex == lastSilder ? Curves.easeInExpo : Curves.easeInOut,
+        );
       } else {
         timerIndex = (widget._sliderList.length - 1) - timerIndex;
+        _controller.jumpToPage(timerIndex);
       }
       context.read<SliderCubit>().sliderWithTimerForPagView(timerIndex);
-
-      _controller.animateToPage(
-        timerIndex,
-        duration: Duration(milliseconds: 500),
-        curve: timerIndex == lastSilder ? Curves.easeInExpo : Curves.easeInOut,
-      );
     });
   }
 
