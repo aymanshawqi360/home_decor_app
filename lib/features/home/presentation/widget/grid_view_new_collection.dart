@@ -10,95 +10,94 @@ class GridViewNewCollection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: GridView.builder(
-        scrollDirection: Axis.vertical,
+    return GridView.builder(
+      shrinkWrap: true,
+      scrollDirection: Axis.vertical,
+      physics: NeverScrollableScrollPhysics(),
+      itemCount: 6,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 23,
+        mainAxisSpacing: 15,
 
-        itemCount: 6,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 23,
-          mainAxisSpacing: 15,
-
-          mainAxisExtent: 250,
-        ),
-        itemBuilder: (context, index) {
-          return SingleChildScrollView(
-            child: Column(
-              children: [
-                Container(
-                  width: context.screenWidth,
-
-                  constraints: BoxConstraints(
-                    maxHeight: context.screenHeight / 7,
-                  ),
-
-                  color: Colors.amber,
-                ),
-                verticalSpace(5),
-                Padding(
-                  padding: EdgeInsets.only(left: 6.w, right: 6.w),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        textScaler: TextScaler.linear(1.0),
-                        "Aluminum chair",
-                        style: TextStyles.font15DarkBrownMedium,
-                      ),
-                      Text(
-                        textScaler: TextScaler.linear(1.0),
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-                        style: TextStyles.font12DarkTaupeLight,
-                      ),
-                      Divider(color: ColorsMananger.ligthPink),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            textScaler: TextScaler.linear(1.0),
-
-                            "\$${120.00}",
-                            style: TextStyles.font15LigthBrownMedium,
-                          ),
-                          Row(
-                            children: [
-                              CircleAvatar(
-                                backgroundColor: ColorsMananger.ligthPink,
-                                maxRadius: 13,
-                                minRadius: 13,
-                                child: Center(
-                                  child: Icon(
-                                    Icons.favorite_rounded,
-                                    size: 20,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                              horizontalSpace(5.23),
-                              CircleAvatar(
-                                backgroundColor: ColorsMananger.ligthPink,
-                                radius: 13,
-                                child: Center(
-                                  child: Icon(
-                                    Icons.add,
-                                    size: 20,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          );
-        },
+        mainAxisExtent: 250,
       ),
+      itemBuilder: (context, index) {
+        return SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                width: context.screenWidth,
+
+                constraints: BoxConstraints(
+                  maxHeight: context.screenHeight / 7,
+                ),
+
+                color: Colors.amber,
+              ),
+              verticalSpace(5),
+              Padding(
+                padding: EdgeInsets.only(left: 6.w, right: 6.w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      textScaler: TextScaler.linear(1.0),
+                      "Aluminum chair",
+                      style: TextStyles.font15DarkBrownMedium,
+                    ),
+                    Text(
+                      textScaler: TextScaler.linear(1.0),
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+                      style: TextStyles.font12DarkTaupeLight,
+                    ),
+                    Divider(color: ColorsMananger.ligthPink),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          textScaler: TextScaler.linear(1.0),
+
+                          "\$${120.00}",
+                          style: TextStyles.font15LigthBrownMedium,
+                        ),
+                        Row(
+                          children: [
+                            CircleAvatar(
+                              backgroundColor: ColorsMananger.ligthPink,
+                              maxRadius: 13,
+                              minRadius: 13,
+                              child: Center(
+                                child: Icon(
+                                  Icons.favorite_rounded,
+                                  size: 20,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            horizontalSpace(5.23),
+                            CircleAvatar(
+                              backgroundColor: ColorsMananger.ligthPink,
+                              radius: 13,
+                              child: Center(
+                                child: Icon(
+                                  Icons.add,
+                                  size: 20,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

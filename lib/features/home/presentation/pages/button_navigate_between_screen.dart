@@ -6,6 +6,7 @@ import 'package:home_decor_app/core/di/dependency_injection.dart';
 import 'package:home_decor_app/core/helper/app_assets.dart';
 import 'package:home_decor_app/core/helper/spacing.dart';
 import 'package:home_decor_app/core/theme/colors.dart';
+import 'package:home_decor_app/features/home/presentation/cubit/categories/categories_cubit.dart';
 import 'package:home_decor_app/features/home/presentation/cubit/cubit/slider_cubit.dart';
 import 'package:home_decor_app/features/home/presentation/pages/home_screen.dart';
 
@@ -20,8 +21,13 @@ class ButtonNavigateBetweenScreen extends StatefulWidget {
 class _ButtonNavigateBetweenScreenState
     extends State<ButtonNavigateBetweenScreen> {
   List<Widget> pages = [
-    BlocProvider(
-      create: (context) => SliderCubit(getIt())..getSlider(),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => SliderCubit(getIt())..getSlider()),
+        BlocProvider(
+          create: (context) => CategoriesCubit(getIt())..getCategories(),
+        ),
+      ],
       child: HomeScreen(),
     ),
     Container(color: Colors.amber),

@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:home_decor_app/core/networks/api_error_model.dart';
+
 import 'package:home_decor_app/core/networks/api_resulte.dart';
 import 'package:home_decor_app/features/home/domain/entities/slider_entity.dart';
 import 'package:home_decor_app/features/home/domain/use_cases/slider_use_cases.dart';

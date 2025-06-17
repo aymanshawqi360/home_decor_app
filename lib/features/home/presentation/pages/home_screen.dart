@@ -7,10 +7,12 @@ import 'package:home_decor_app/core/helper/spacing.dart';
 import 'package:home_decor_app/core/routes/routes.dart';
 import 'package:home_decor_app/core/theme/colors.dart';
 import 'package:home_decor_app/core/theme/styles.dart';
+import 'package:home_decor_app/features/home/presentation/cubit/categories/categories_state.dart';
+import 'package:home_decor_app/features/home/presentation/widget/categories_list/categories_bloc_builder.dart';
 import 'package:home_decor_app/features/home/presentation/widget/container_best_seller.dart';
 import 'package:home_decor_app/features/home/presentation/widget/grid_view_new_collection.dart';
+import 'package:home_decor_app/features/home/presentation/widget/show_more/caregories_and_show_more.dart';
 import 'package:home_decor_app/features/home/presentation/widget/slider/home_slider.dart';
-import 'package:home_decor_app/features/home/presentation/widget/list_view_categories.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -26,39 +28,40 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: _loginAppBar(context),
       body: Padding(
         padding: EdgeInsets.only(left: 12.w, right: 12.w, top: 20.h),
-        child: Column(
-          children: [
-            HomeSlider(),
-            verticalSpace(20),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  textScaler: TextScaler.linear(1.0),
-                  "Categories",
-                  style: TextStyles.font15LigthBrownSemiBold,
-                ),
-                verticalSpace(20),
-                ListViewCategories(),
-                verticalSpace(13.0),
-                Text(
-                  textScaler: TextScaler.linear(1.0),
-                  "Best Seller",
-                  style: TextStyles.font15LigthBrownSemiBold,
-                ),
-                verticalSpace(28.0),
-                ContainerBestSeller(),
-                verticalSpace(20.0),
-                Text(
-                  textScaler: TextScaler.linear(1.0),
-                  "New Collection",
-                  style: TextStyles.font15LigthBrownSemiBold,
-                ),
-              ],
-            ),
-            verticalSpace(10),
-            GridViewNewCollection(),
-          ],
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+
+          child: Column(
+            children: [
+              HomeSlider(),
+              //   verticalSpace(20),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CaregoriesAndShowMore(),
+                  verticalSpace(20),
+                  CategoriesBlocBuilder(),
+                  //    ListViewCategories(),
+                  verticalSpace(13.0),
+                  Text(
+                    textScaler: TextScaler.linear(1.0),
+                    "Best Seller",
+                    style: TextStyles.font15LigthBrownSemiBold,
+                  ),
+                  verticalSpace(28.0),
+                  ContainerBestSeller(),
+                  verticalSpace(20.0),
+                  Text(
+                    textScaler: TextScaler.linear(1.0),
+                    "New Collection",
+                    style: TextStyles.font15LigthBrownSemiBold,
+                  ),
+                ],
+              ),
+              verticalSpace(10),
+              GridViewNewCollection(),
+            ],
+          ),
         ),
       ),
     );
