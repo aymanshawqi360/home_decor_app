@@ -16,8 +16,7 @@ class CategoriesCubit extends Cubit<CategoriesState> {
     final response = await _categoriesUseCases.getCategories();
 
     if (response is Success<List<CategoriesEntity>>) {
-      print(response.data.toString());
-      emit(CategoriesSuccess(categoriesEntity: response.data!));
+      emit(CategoriesSuccess(categoriesEntity: response.data ?? []));
     } else if (response is Failure<List<CategoriesEntity>>) {
       emit(
         CategoriesFailure(

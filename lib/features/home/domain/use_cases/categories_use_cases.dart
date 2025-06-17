@@ -9,4 +9,8 @@ class CategoriesUseCases {
   Future<ApiResulte<List<CategoriesEntity>>> getCategories() async {
     return await _homeRepo.getCategories();
   }
+
+  Future<ApiResulte<List<CategoriesEntity>>> getShowMore() async {
+    return await _homeRepo.getCategories();
+  }
 }
