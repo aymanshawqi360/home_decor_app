@@ -194,4 +194,14 @@ class TextStyles {
     fontWeight: FontWeightHelper.light,
     color: ColorsMananger.darkGray,
   );
+  static TextStyle font12LigthBrownSemiBold = GoogleFonts.leagueSpartan(
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    color: ColorsMananger.ligthBrown,
+  );
+  static TextStyle font12DarkGrayMedium = GoogleFonts.leagueSpartan(
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.medium,
+    color: ColorsMananger.darkGray,
+  );
 }

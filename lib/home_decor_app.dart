@@ -23,7 +23,7 @@ class HomeDecorApp extends StatelessWidget {
           theme: ThemeData(
             scaffoldBackgroundColor: ColorsMananger.white,
             appBarTheme: AppBarTheme(color: ColorsMananger.white),
-            textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
+            // textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
           ),
           initialRoute: Routes.buttonNavigateBetweenScreen,
           onGenerateRoute: _appRouter.generateRoute,
