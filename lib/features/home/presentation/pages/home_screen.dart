@@ -15,6 +15,7 @@ import 'package:home_decor_app/features/home/presentation/widget/best_seller/bes
 import 'package:home_decor_app/features/home/presentation/widget/new_collection/new_collection_bloc_builder.dart';
 import 'package:home_decor_app/features/home/presentation/widget/new_collection/new_collection_grid_view_list.dart';
 import 'package:home_decor_app/features/home/presentation/widget/show_more/caregories_and_show_more.dart';
+import 'package:home_decor_app/features/home/presentation/widget/show_more_best_seller/show_more_best_seller.dart';
 import 'package:home_decor_app/features/home/presentation/widget/slider/home_slider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -46,11 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   CategoriesBlocBuilder(),
                   //    ListViewCategories(),
                   verticalSpace(13.0),
-                  Text(
-                    textScaler: TextScaler.linear(1.0),
-                    "Best Seller",
-                    style: TextStyles.font15LigthBrownSemiBold,
-                  ),
+                  ShowMoreBestSeller(),
                   verticalSpace(15),
                   BestSellerBlocBuilder(),
                   verticalSpace(20.0),
