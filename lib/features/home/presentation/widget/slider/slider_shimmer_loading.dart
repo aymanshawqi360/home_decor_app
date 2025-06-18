@@ -33,7 +33,6 @@ class SliderShimmerLoading extends StatelessWidget {
                   redact: true,
 
                   configuration: RedactedConfiguration(
-                    redactedColor: Colors.grey,
                     animationDuration: const Duration(milliseconds: 800),
                   ),
                 ),
