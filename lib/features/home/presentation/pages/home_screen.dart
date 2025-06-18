@@ -51,22 +51,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: TextStyles.font15LigthBrownSemiBold,
                   ),
                   verticalSpace(15),
-
-                  // ContainerBestSeller(),
-                  // Container(
-                  //   height: context.screenHeight / 5,
-                  //   width: context.screenWidth,
-                  //   color: Colors.black,
-                  //   child: Stack(
-                  //     children: [
-                  //       Container(
-                  //         margin: EdgeInsets.only(top: 20),
-                  //         color: Colors.amber,
-                  //       ),
-                  //       Image.asset(AppAssets.imageAndSvg.imageNotAvailable),
-                  //     ],
-                  //   ),
-                  // ),
                   BestSellerBlocBuilder(),
                   verticalSpace(20.0),
                   Text(
