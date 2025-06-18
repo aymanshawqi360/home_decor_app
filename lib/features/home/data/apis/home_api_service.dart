@@ -3,6 +3,7 @@ import 'package:home_decor_app/core/networks/api_constants.dart';
 import 'package:home_decor_app/features/home/data/apis/home_api_constants.dart';
 import 'package:home_decor_app/features/home/data/model/best_seller_response_model.dart';
 import 'package:home_decor_app/features/home/data/model/categories_response_model.dart';
+import 'package:home_decor_app/features/home/data/model/new_collection_response_model.dart';
 import 'package:home_decor_app/features/home/data/model/slider_respons_model.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -20,4 +21,6 @@ abstract class HomeApiService {
 
   @GET(HomeApiConstants.besetSeller)
   Future<BestSellerResponseModel> getBestSeller();
+  @GET(HomeApiConstants.newCollection)
+  Future<NewCollectionResponseModel> getNewCollection();
 }

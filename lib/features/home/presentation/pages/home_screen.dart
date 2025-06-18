@@ -12,7 +12,8 @@ import 'package:home_decor_app/features/home/presentation/cubit/categories/categ
 import 'package:home_decor_app/features/home/presentation/widget/best_seller/best_seller_bloc_builder.dart';
 import 'package:home_decor_app/features/home/presentation/widget/categories_list/categories_bloc_builder.dart';
 import 'package:home_decor_app/features/home/presentation/widget/best_seller/best_seller_list_view_item.dart';
-import 'package:home_decor_app/features/home/presentation/widget/grid_view_new_collection.dart';
+import 'package:home_decor_app/features/home/presentation/widget/new_collection/new_collection_bloc_builder.dart';
+import 'package:home_decor_app/features/home/presentation/widget/new_collection/new_collection_grid_view_list.dart';
 import 'package:home_decor_app/features/home/presentation/widget/show_more/caregories_and_show_more.dart';
 import 'package:home_decor_app/features/home/presentation/widget/slider/home_slider.dart';
 
@@ -77,7 +78,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
               verticalSpace(10),
-              GridViewNewCollection(),
+              NewCollectionBlocBuilder(),
+              // GridViewNewCollection(),
             ],
           ),
         ),

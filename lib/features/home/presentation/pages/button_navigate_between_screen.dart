@@ -6,9 +6,10 @@ import 'package:home_decor_app/core/di/dependency_injection.dart';
 import 'package:home_decor_app/core/helper/app_assets.dart';
 import 'package:home_decor_app/core/helper/spacing.dart';
 import 'package:home_decor_app/core/theme/colors.dart';
-import 'package:home_decor_app/features/home/presentation/best_seller/best_seller_cubit.dart';
+import 'package:home_decor_app/features/home/presentation/cubit/best_seller/best_seller_cubit.dart';
 import 'package:home_decor_app/features/home/presentation/cubit/categories/categories_cubit.dart';
 import 'package:home_decor_app/features/home/presentation/cubit/cubit/slider_cubit.dart';
+import 'package:home_decor_app/features/home/presentation/cubit/new_collection/new_collection_cubit.dart';
 import 'package:home_decor_app/features/home/presentation/pages/home_screen.dart';
 
 class ButtonNavigateBetweenScreen extends StatefulWidget {
@@ -29,6 +30,9 @@ class _ButtonNavigateBetweenScreenState
           create: (context) => CategoriesCubit(getIt())..getCategories(),
         ),
         BlocProvider(create: (context) => BestSellerCubit(getIt())),
+        BlocProvider(
+          create: (context) => NewCollectionCubit(getIt())..getNewCollection(),
+        ),
       ],
       child: HomeScreen(),
     ),

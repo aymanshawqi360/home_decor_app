@@ -4,24 +4,29 @@ import 'package:home_decor_app/core/helper/extensions.dart';
 class AppGridView extends StatelessWidget {
   final int? itemCount;
   final bool? shrinkWrap;
-
+  final Axis? scrollDirection;
   final EdgeInsetsGeometry? padding;
   final SliverGridDelegate? gridDelegate;
   final Widget Function(BuildContext, int) itemBuilder;
+  final ScrollPhysics? scrollPhysics;
   const AppGridView({
     super.key,
+    this.scrollPhysics,
     required this.itemCount,
     this.padding,
     this.gridDelegate,
     this.shrinkWrap,
     required this.itemBuilder,
+    this.scrollDirection,
   });
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
+      physics: scrollPhysics,
       shrinkWrap: shrinkWrap ?? false,
       itemCount: itemCount ?? 0,
+      scrollDirection: scrollDirection ?? Axis.vertical,
       padding:
           padding ??
           EdgeInsets.symmetric(
