@@ -3,7 +3,7 @@ import 'package:home_decor_app/core/networks/api_error_model.dart';
 import 'package:home_decor_app/core/networks/api_resulte.dart';
 import 'package:home_decor_app/features/home/domain/entities/best_seller_entity.dart';
 import 'package:home_decor_app/features/home/domain/use_cases/best_seller_use_cases.dart';
-import 'package:home_decor_app/features/home/presentation/best_seller/best_seller_state.dart';
+import 'package:home_decor_app/features/home/presentation/cubit/best_seller/best_seller_state.dart';
 
 class BestSellerCubit extends Cubit<BestSellerState> {
   final BestSellerUseCases _bestSellerUseCases;
