@@ -20,7 +20,7 @@ class SliderPageViewSuccess extends StatefulWidget {
 class _SliderPageViewSuccessState extends State<SliderPageViewSuccess> {
   late PageController _controller;
   late ScrollPhysics scrollPhysics;
-  late Timer timerController;
+
   int timerIndex = 0;
   bool isScrollPhysics = true;
   @override
@@ -52,8 +52,6 @@ class _SliderPageViewSuccessState extends State<SliderPageViewSuccess> {
 
   @override
   void dispose() {
-    timerController.cancel();
-
     _controller.dispose();
     super.dispose();
   }

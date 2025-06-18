@@ -7,9 +7,11 @@ import 'package:home_decor_app/core/helper/spacing.dart';
 import 'package:home_decor_app/core/routes/routes.dart';
 import 'package:home_decor_app/core/theme/colors.dart';
 import 'package:home_decor_app/core/theme/styles.dart';
+import 'package:home_decor_app/core/widgets/app_page_view.dart';
 import 'package:home_decor_app/features/home/presentation/cubit/categories/categories_state.dart';
+import 'package:home_decor_app/features/home/presentation/widget/best_seller/best_seller_bloc_builder.dart';
 import 'package:home_decor_app/features/home/presentation/widget/categories_list/categories_bloc_builder.dart';
-import 'package:home_decor_app/features/home/presentation/widget/container_best_seller.dart';
+import 'package:home_decor_app/features/home/presentation/widget/best_seller/best_seller_list_view_item.dart';
 import 'package:home_decor_app/features/home/presentation/widget/grid_view_new_collection.dart';
 import 'package:home_decor_app/features/home/presentation/widget/show_more/caregories_and_show_more.dart';
 import 'package:home_decor_app/features/home/presentation/widget/slider/home_slider.dart';
@@ -48,8 +50,24 @@ class _HomeScreenState extends State<HomeScreen> {
                     "Best Seller",
                     style: TextStyles.font15LigthBrownSemiBold,
                   ),
-                  verticalSpace(28.0),
-                  ContainerBestSeller(),
+                  verticalSpace(15),
+
+                  // ContainerBestSeller(),
+                  // Container(
+                  //   height: context.screenHeight / 5,
+                  //   width: context.screenWidth,
+                  //   color: Colors.black,
+                  //   child: Stack(
+                  //     children: [
+                  //       Container(
+                  //         margin: EdgeInsets.only(top: 20),
+                  //         color: Colors.amber,
+                  //       ),
+                  //       Image.asset(AppAssets.imageAndSvg.imageNotAvailable),
+                  //     ],
+                  //   ),
+                  // ),
+                  BestSellerBlocBuilder(),
                   verticalSpace(20.0),
                   Text(
                     textScaler: TextScaler.linear(1.0),

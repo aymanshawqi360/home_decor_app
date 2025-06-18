@@ -4,6 +4,7 @@ import 'package:home_decor_app/core/networks/dio_factory.dart';
 import 'package:home_decor_app/features/home/data/apis/home_api_service.dart';
 import 'package:home_decor_app/features/home/data/repo_implementation/home_repo_implementation.dart';
 import 'package:home_decor_app/features/home/domain/repo/home_repo.dart';
+import 'package:home_decor_app/features/home/domain/use_cases/best_seller_use_cases.dart';
 import 'package:home_decor_app/features/home/domain/use_cases/categories_use_cases.dart';
 import 'package:home_decor_app/features/home/domain/use_cases/slider_use_cases.dart';
 
@@ -19,5 +20,9 @@ Future<void> setupGetIt() async {
   //Categories
   getIt.registerLazySingleton<CategoriesUseCases>(
     () => CategoriesUseCases(getIt()),
+  );
+  //Best-Seller
+  getIt.registerLazySingleton<BestSellerUseCases>(
+    () => BestSellerUseCases(getIt()),
   );
 }
