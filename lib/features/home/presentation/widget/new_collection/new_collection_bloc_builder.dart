@@ -37,7 +37,7 @@ class NewCollectionBlocBuilder extends StatelessWidget {
   }
 
   Widget _buildFailureState(NewCollectionFailure state) {
-    return Center(child: Text("${state.errorMessage.message}"));
+    return Center(child: Text("${state.errorMessage.errorMessage}"));
   }
 
   Widget _buildSuccessState(NewCollectionSuccess state) {

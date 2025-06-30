@@ -63,6 +63,8 @@ dependencies:
   cached_network_image: ^3.4.1
   # Shimmer
   redacted: ^1.0.13
+  # To Store Data
+  flutter_secure_storage: ^9.2.4
 
 dev_dependencies:
   flutter_test:

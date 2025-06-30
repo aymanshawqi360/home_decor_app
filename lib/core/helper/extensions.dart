@@ -37,3 +37,7 @@ extension ContextExtensions on BuildContext {
     bottom: screenHeight / 20,
   );
 }
+
+extension StringExtension on String? {
+  bool isNullOrEmp() => this == null || this == "";
+}

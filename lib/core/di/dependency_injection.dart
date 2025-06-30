@@ -8,6 +8,10 @@ import 'package:home_decor_app/features/home/domain/use_cases/best_seller_use_ca
 import 'package:home_decor_app/features/home/domain/use_cases/categories_use_cases.dart';
 import 'package:home_decor_app/features/home/domain/use_cases/new_collection_use_cases.dart';
 import 'package:home_decor_app/features/home/domain/use_cases/slider_use_cases.dart';
+import 'package:home_decor_app/features/sign_up_screen/data/api/sign_up_api_service.dart';
+import 'package:home_decor_app/features/sign_up_screen/data/repo_implementation/repo_implementation.dart';
+import 'package:home_decor_app/features/sign_up_screen/domain/repo/sign_up_repo.dart';
+import 'package:home_decor_app/features/sign_up_screen/domain/use_cases/sign_up_use_cases.dart';
 
 final getIt = GetIt.instance;
 
@@ -31,4 +35,10 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<NewCollectionUseCases>(
     () => NewCollectionUseCases(getIt()),
   );
+
+  //SignUp
+
+  getIt.registerLazySingleton<SignUpApiService>(() => SignUpApiService(dio));
+  getIt.registerLazySingleton<SignUpRepo>(() => RepoImplementation(getIt()));
+  getIt.registerLazySingleton<SignUpUseCases>(() => SignUpUseCases(getIt()));
 }

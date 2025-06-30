@@ -25,7 +25,7 @@ class SliderCubit extends Cubit<SliderState> {
           // errorMessage: ApiErrorModel(
           //   message: response.errorMessage!.message.toString(),
           // ),
-          errorMessage: response.errorMessage?.message ?? "Unknown error",
+          errorMessage: response.errorMessage?.errorMessage ?? "Unknown error",
         ),
       );
     }

@@ -45,7 +45,7 @@ class ShowMoreBestSellerBlocBuilder extends StatelessWidget {
   }
 
   Widget _buildFailureState(ShowMoreBestSellerFailure state) {
-    return Text("${state.errorMessage.message}");
+    return Text("${state.errorMessage.errorMessage}");
   }
 
   Widget _buildLoadingState() {

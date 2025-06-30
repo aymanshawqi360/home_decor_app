@@ -18,7 +18,9 @@ class ShowMoreBestSellerCubit extends Cubit<ShowMoreBestSellerState> {
     } else if (response is Failure<List<BestSellerEntity>>) {
       emit(
         ShowMoreBestSellerFailure(
-          errorMessage: ApiErrorModel(message: response.errorMessage!.message),
+          errorMessage: ApiErrorModel(
+            errorMessage: response.errorMessage!.errorMessage,
+          ),
         ),
       );
     }
