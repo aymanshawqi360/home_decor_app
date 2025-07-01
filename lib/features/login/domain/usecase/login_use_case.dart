@@ -1,4 +1,4 @@
-import 'package:home_decor_app/core/networks/api_reuselte.dart';
+import 'package:home_decor_app/core/networks/api_result.dart';
 import 'package:home_decor_app/features/login/domain/entity/login_request_entity.dart';
 import 'package:home_decor_app/features/login/domain/entity/login_response.entity.dart';
 import 'package:home_decor_app/features/login/domain/repo/login_repo.dart';
