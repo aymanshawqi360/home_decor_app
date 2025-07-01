@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-import 'package:home_decor_app/core/newtorks/dio_factory.dart';
+import 'package:home_decor_app/core/networks/dio_factory.dart';
 import 'package:home_decor_app/features/login/data/api/login_api_service.dart';
 import 'package:home_decor_app/features/login/data/repo_implementation/repo_implementation.dart';
 import 'package:home_decor_app/features/login/domain/repo/login_repo.dart';

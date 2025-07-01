@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:home_decor_app/core/helper/app_assets.dart';
@@ -6,6 +7,10 @@ import 'package:home_decor_app/core/helper/spacing.dart';
 import 'package:home_decor_app/core/theme/styles.dart';
 import 'package:home_decor_app/core/widgets/app_text_button.dart';
 import 'package:home_decor_app/core/widgets/app_text_form_field.dart';
+import 'package:home_decor_app/features/login/presentation/cubit/login_cubit.dart';
+import 'package:home_decor_app/features/login/presentation/widget/login_bloc_listener.dart';
+import 'package:home_decor_app/features/login/presentation/widget/login_form.dart';
+import 'package:home_decor_app/features/login/presentation/widget/welcome_please_enter_your_details_to_proceed.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -26,63 +31,22 @@ class LoginScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  textScaler: TextScaler.linear(1.0),
-                  "Welcome",
-                  style: TextStyles.font20DarkGrayishBrownSemiBold(context),
-                ),
-                verticalSpace(11),
-                Text(
-                  textScaler: TextScaler.linear(1.0),
-                  "Please enter your details to proceed.",
-                  style: TextStyles.font14DarkGrayishBrownRegular(context),
-                ),
-              ],
-            ),
+            WelcomePleaseEnterYourDetailsToProceed(),
             verticalSpace(67),
-            Padding(
-              padding: EdgeInsets.only(
-                bottom: MediaQuery.sizeOf(context).height / 80,
-              ),
-              child: Text(
-                textScaler: TextScaler.linear(1.0),
-                "Username Or Email",
-                style: TextStyles.font15DarkGrayishBrownMedium(context),
-              ),
-            ),
-
-            AppTextFormField(validator: (value) {}),
-            verticalSpace(23),
-            Padding(
-              padding: EdgeInsets.only(
-                bottom: MediaQuery.sizeOf(context).height / 80,
-              ),
-              child: Text(
-                textScaler: TextScaler.linear(1.0),
-                "Password",
-                style: TextStyles.font15DarkGrayishBrownMedium(context),
-              ),
-            ),
-
-            AppTextFormField(
-              suffixIcon: GestureDetector(
-                onTap: () {},
-                child: Icon(Icons.visibility, size: 22.r),
-              ),
-
-              hintText: '●●●●●●●●●●●●●●●●',
-              validator: (value) {},
-            ),
+            LoginForm(),
             verticalSpace(50),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [AppTextButton()],
+                  children: [
+                    AppTextButton(
+                      onTap: () {
+                        _checkUserNameAndPasswrod(context);
+                      },
+                    ),
+                  ],
                 ),
                 verticalSpace(18.12),
                 Text(
@@ -148,10 +112,17 @@ class LoginScreen extends StatelessWidget {
                 ],
               ),
             ),
+            LoginBlocListener(),
           ],
         ),
       ),
     );
+  }
+
+  _checkUserNameAndPasswrod(BuildContext context) {
+    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+      context.read<LoginCubit>().getLogin();
+    }
   }
 
   AppBar _loginAppBar(BuildContext context) => AppBar(

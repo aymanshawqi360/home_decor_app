@@ -16,6 +16,7 @@ class AppTextFormField extends StatelessWidget {
   final Function(String?) validator;
   final Color? cursorColor;
   final EdgeInsetsGeometry? contentPadding;
+  final TextEditingController? controller;
   const AppTextFormField({
     super.key,
     this.horizontal,
@@ -30,16 +31,14 @@ class AppTextFormField extends StatelessWidget {
     this.focusedBorder,
     this.enabledBorder,
     this.contentPadding,
+    this.controller,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      // style: TextStyles.font14DarkGrayishBrownRegular(context),
-      style: TextStyle(
-        color: ColorsMananger.darkGrayishBrown,
-        //   fontSize: MediaQuery.textScalerOf(context).scale(14),
-      ),
+      controller: controller,
+      style: TextStyle(color: ColorsMananger.darkGrayishBrown),
       cursorColor: cursorColor ?? ColorsMananger.darkGrayishBrown,
 
       decoration: InputDecoration(
@@ -60,7 +59,19 @@ class AppTextFormField extends StatelessWidget {
 
               borderRadius: BorderRadius.circular(25),
             ),
+
+        errorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.red, width: 0.8),
+
+          borderRadius: BorderRadius.circular(25),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.red, width: 0.8),
+
+          borderRadius: BorderRadius.circular(25),
+        ),
         suffixIcon: suffixIcon,
+
         isDense: true,
         filled: true,
         fillColor: fillColor ?? ColorsMananger.linen,

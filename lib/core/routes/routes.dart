@@ -1,4 +1,11 @@
 class Routes {
   static const String onboarding = "/onboarding";
   static const String login = "/login";
+  static const String signUp = "/signUp";
+  static const String forgotPassword = "/forgotPassword";
+  static const String setPassword = "/setPassword";
+  static const String homeScreen = "/homeScreen";
+  static const String buttonNavigateBetweenScreen =
+      "/buttonNavigateBetweenScreen";
+  static const String search = "/search_screen";
 }

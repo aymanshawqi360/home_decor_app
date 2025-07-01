@@ -25,7 +25,7 @@ class HomeDecorApp extends StatelessWidget {
             appBarTheme: AppBarTheme(color: ColorsMananger.white),
             textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
           ),
-          initialRoute: Routes.onboarding,
+          initialRoute: Routes.login,
           onGenerateRoute: _appRouter.generateRoute,
         );
       },

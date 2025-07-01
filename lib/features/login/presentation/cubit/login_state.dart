@@ -1,4 +1,4 @@
-import 'package:home_decor_app/core/newtorks/api_error_model.dart';
+import 'package:home_decor_app/core/networks/api_error_model.dart';
 
 sealed class LoginState {}
 
