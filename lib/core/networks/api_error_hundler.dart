@@ -52,10 +52,6 @@ class ApiErrorHandler {
   }
 
   static ApiErrorModel errorHundle(dynamic data) {
-    return ApiErrorModel(
-      errors: data['errors'],
-      detail: data['detail'],
-      password: data['password'],
-    );
+    return ApiErrorModel(errors: data['errors']);
   }
 }
