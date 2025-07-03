@@ -43,7 +43,7 @@ dependencies:
   flutter_svg: ^2.1.0
   # for splash screen
   flutter_native_splash: ^2.4.6
-  # carousel slider widget, support infinite scroll and custom child widget.
+   # carousel slider widget, support infinite scroll and custom child widget.
   carousel_slider: ^5.0.0
   # Network
   dio: ^5.8.0+1
@@ -63,6 +63,8 @@ dependencies:
   cached_network_image: ^3.4.1
   # Shimmer
   redacted: ^1.0.13
+  # To Store Data
+  flutter_secure_storage: ^9.2.4
 
 dev_dependencies:
   flutter_test:

@@ -7,28 +7,28 @@ class ApiErrorHandler {
       switch (e.type) {
         case DioExceptionType.cancel:
           return ApiErrorModel(
-            message: "The request was cancelled before being sent.",
+            errorMessage: "The request was cancelled before being sent.",
           );
 
         case DioExceptionType.connectionTimeout:
           return ApiErrorModel(
-            message:
+            errorMessage:
                 "Connection to the server timed out. Please try again later.",
           );
 
         case DioExceptionType.sendTimeout:
           return ApiErrorModel(
-            message: "Sending data took too long. Please try again.",
+            errorMessage: "Sending data took too long. Please try again.",
           );
 
         case DioExceptionType.receiveTimeout:
           return ApiErrorModel(
-            message: "The app couldn't receive data in time.",
+            errorMessage: "The app couldn't receive data in time.",
           );
 
         case DioExceptionType.badCertificate:
           return ApiErrorModel(
-            message:
+            errorMessage:
                 "There is a problem with the server's security certificate.",
           );
 
@@ -37,20 +37,21 @@ class ApiErrorHandler {
 
         case DioExceptionType.connectionError:
           return ApiErrorModel(
-            message: "Please check your internet connection and try again.",
+            errorMessage:
+                "Please check your internet connection and try again.",
           );
 
         case DioExceptionType.unknown:
           return ApiErrorModel(
-            message: "An unexpected error occurred. Please try again.",
+            errorMessage: "An unexpected error occurred. Please try again.",
           );
       }
     } else {
-      return ApiErrorModel(message: "Unknown error occurred");
+      return ApiErrorModel(errorMessage: "Unknown error occurred");
     }
   }
 
   static ApiErrorModel errorHundle(dynamic data) {
-    return ApiErrorModel(message: data.toString());
+    return ApiErrorModel(errors: data['errors']);
   }
 }

@@ -16,6 +16,7 @@ class AppTextFormField extends StatelessWidget {
   final Function(String?) validator;
   final Color? cursorColor;
   final EdgeInsetsGeometry? contentPadding;
+  final TextEditingController? controller;
   const AppTextFormField({
     super.key,
     this.horizontal,
@@ -30,6 +31,7 @@ class AppTextFormField extends StatelessWidget {
     this.focusedBorder,
     this.enabledBorder,
     this.contentPadding,
+    this.controller,
   });
 
   @override
@@ -56,6 +58,17 @@ class AppTextFormField extends StatelessWidget {
 
               borderRadius: BorderRadius.circular(25),
             ),
+
+        errorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.red, width: 0.8),
+
+          borderRadius: BorderRadius.circular(25),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.red, width: 0.8),
+
+          borderRadius: BorderRadius.circular(25),
+        ),
         suffixIcon: suffixIcon,
 
         isDense: true,
