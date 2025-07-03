@@ -60,7 +60,10 @@ class LoginBlocListener extends StatelessWidget {
               onTap: () {
                 context.pop();
               },
-              child: Text("Cancel"),
+              child: Text(
+                "Cancel",
+                style: TextStyle(color: ColorsMananger.darkGray),
+              ),
             ),
           ],
         );
