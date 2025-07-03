@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:home_decor_app/core/helper/app_assets.dart';
 import 'package:home_decor_app/core/helper/extensions.dart';
-import 'package:home_decor_app/core/theme/colors.dart';
 import 'package:home_decor_app/core/theme/styles.dart';
-import 'package:home_decor_app/core/widgets/app_text_form_field.dart';
 import 'package:home_decor_app/features/search/presentation/widget/search_text_form_field.dart';
 
 class SearchScreen extends StatelessWidget {
