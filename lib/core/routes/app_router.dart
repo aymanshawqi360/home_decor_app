@@ -5,7 +5,6 @@ import 'package:home_decor_app/core/routes/routes.dart';
 import 'package:home_decor_app/features/forgot_password/presentation/pages/forgot_password_screen.dart';
 import 'package:home_decor_app/features/home/presentation/pages/button_navigate_between_screen.dart';
 import 'package:home_decor_app/features/home/presentation/pages/home_screen.dart';
-import 'package:home_decor_app/features/login/presentation/cubit/login_cubit.dart';
 import 'package:home_decor_app/features/login/presentation/pages/login_screen.dart';
 import 'package:home_decor_app/features/onboarding/presentation/pages/onboarding_screen.dart';
 import 'package:home_decor_app/features/search/presentation/pages/search_screen.dart';
