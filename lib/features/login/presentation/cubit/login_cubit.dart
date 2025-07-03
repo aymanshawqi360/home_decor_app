@@ -29,8 +29,7 @@ class LoginCubit extends Cubit<LoginState> {
         LoginFailure(
           errorMessage: ApiErrorModel(
             errorMessage: response.errorMessage!.errorMessage,
-            password: response.errorMessage!.password,
-            detail: response.errorMessage!.detail,
+            errors: response.errorMessage!.errors,
           ),
         ),
       );
