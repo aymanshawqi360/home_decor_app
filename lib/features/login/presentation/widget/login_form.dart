@@ -53,7 +53,6 @@ class _LoginFormState extends State<LoginForm> {
           ),
 
           AppTextFormField(
-            //  obscureText: context.read<LoginCubit>().isPassword,
             controller: controllerEmail,
             validator: (value) {
               if (value?.isEmpty ?? value == null) {
@@ -77,16 +76,17 @@ class _LoginFormState extends State<LoginForm> {
             buildWhen: (previous, current) => current is LoginHidePasswordWord,
 
             builder: (context, state) {
-              bool isPasswrod = (state is LoginHidePasswordWord);
+              final isPasswrod =
+                  (state is LoginHidePasswordWord) ? state.isPasswrod : false;
               return AppTextFormField(
-                obscureText: isPasswrod ? state.isPasswrod : false,
+                obscureText: isPasswrod,
                 controller: controllerPasswrod,
                 suffixIcon: GestureDetector(
                   onTap: () {
                     context.read<LoginCubit>().hidePasswordWord();
                   },
                   child: Icon(
-                    isPasswrod ? Icons.visibility : Icons.visibility_off,
+                    isPasswrod ? Icons.visibility_off : Icons.visibility,
                     size: 22.r,
                   ),
                 ),
