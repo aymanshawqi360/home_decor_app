@@ -43,10 +43,7 @@ class LoginScreen extends StatelessWidget {
                   children: [
                     AppTextButton(
                       onTap: () {
-                        context.pushNamedAndRemoveUntil(
-                          Routes.homeScreen,
-                          predicate: (_) => false,
-                        );
+                        _checkUserNameAndPasswrod(context);
                       },
                     ),
                   ],

@@ -26,7 +26,7 @@ class AppTextButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: width ?? context.screenWidth / 5,
+        width: width ?? context.screenWidth / 3,
 
         height: height ?? context.screenHeight / 20,
 

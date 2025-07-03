@@ -5,6 +5,7 @@ import 'package:home_decor_app/core/routes/routes.dart';
 import 'package:home_decor_app/features/forgot_password/presentation/pages/forgot_password_screen.dart';
 import 'package:home_decor_app/features/home/presentation/pages/button_navigate_between_screen.dart';
 import 'package:home_decor_app/features/home/presentation/pages/home_screen.dart';
+import 'package:home_decor_app/features/login/presentation/cubit/login_cubit.dart';
 import 'package:home_decor_app/features/login/presentation/pages/login_screen.dart';
 import 'package:home_decor_app/features/onboarding/presentation/pages/onboarding_screen.dart';
 import 'package:home_decor_app/features/search/presentation/pages/search_screen.dart';
@@ -23,17 +24,13 @@ class AppRouter {
       case Routes.buttonNavigateBetweenScreen:
         return MaterialPageRoute(builder: (_) => ButtonNavigateBetweenScreen());
       case Routes.login:
-        return MaterialPageRoute(builder: (_) => LoginScreen());
-      case Routes.signUp:
-        return MaterialPageRoute(builder: (_) => SignUpScreen());
-      case Routes.forgotPassword:
-        return MaterialPageRoute(builder: (_) => ForgotPasswordScreen());
-      case Routes.setPassword:
-        return MaterialPageRoute(builder: (_) => SetPasswordScreen());
-      case Routes.homeScreen:
-        return MaterialPageRoute(builder: (_) => HomeScreen());
-      case Routes.search:
-        return MaterialPageRoute(builder: (_) => SearchScreen());
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) => LoginCubit(getIt()),
+                child: LoginScreen(),
+              ),
+        );
 
       default:
         return null;
