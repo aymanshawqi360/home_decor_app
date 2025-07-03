@@ -37,6 +37,7 @@ class AppTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       style: TextStyle(color: ColorsMananger.darkGrayishBrown),
       cursorColor: cursorColor ?? ColorsMananger.darkGrayishBrown,
 

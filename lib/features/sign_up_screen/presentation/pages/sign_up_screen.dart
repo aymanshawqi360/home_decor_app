@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:home_decor_app/core/helper/app_assets.dart';
@@ -6,8 +7,14 @@ import 'package:home_decor_app/core/helper/extensions.dart';
 import 'package:home_decor_app/core/helper/spacing.dart';
 import 'package:home_decor_app/core/routes/routes.dart';
 import 'package:home_decor_app/core/theme/styles.dart';
+import 'package:home_decor_app/core/widgets/app_do_you_have_accound.dart';
+import 'package:home_decor_app/core/widgets/app_or_sign_up_with.dart';
 import 'package:home_decor_app/core/widgets/app_text_button.dart';
-import 'package:home_decor_app/core/widgets/app_text_form_field.dart';
+import 'package:home_decor_app/features/sign_up_screen/presentation/cubit/cubit/sign_up_cubit.dart';
+import 'package:home_decor_app/features/sign_up_screen/presentation/cubit/cubit/sign_up_state.dart';
+import 'package:home_decor_app/features/sign_up_screen/presentation/widget/sign_up_bloc_builder.dart';
+import 'package:home_decor_app/features/sign_up_screen/presentation/widget/sign_up_form.dart';
+import 'package:home_decor_app/features/sign_up_screen/presentation/widget/terms_of_use.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -19,7 +26,7 @@ class SignUpScreen extends StatelessWidget {
 
       body: Padding(
         padding: EdgeInsets.only(
-          // left: MediaQuery.sizeOf(context).width / 13,
+          // left: MediaQuery.sizeOf(context).longestSide,
           left: 31.w,
           // top: MediaQuery.sizeOf(context).height / 50,
           top: 37.h,
@@ -32,101 +39,31 @@ class SignUpScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Full name",
-                style: TextStyles.font13LigthBrownMedium(context),
-              ),
-              verticalSpace(3),
-              AppTextFormField(hintText: "Full name", validator: (vlaue) {}),
-              verticalSpace(16),
-              Text("Email", style: TextStyles.font13LigthBrownMedium(context)),
-              AppTextFormField(validator: (vlaue) {}),
-              verticalSpace(16),
-              Text(
-                "Mobile Number",
-                style: TextStyles.font13LigthBrownMedium(context),
-              ),
-              verticalSpace(3),
-              AppTextFormField(
-                hintText: "+ 123 456 789",
-                validator: (vlaue) {},
-              ),
-              verticalSpace(16),
-
-              Text(
-                "Date of birth",
-                style: TextStyles.font13LigthBrownMedium(context),
-              ),
-              verticalSpace(3),
-              AppTextFormField(hintText: "DD / MM /YYY", validator: (vlaue) {}),
-              verticalSpace(16),
-              Text(
-                "Password",
-                style: TextStyles.font13LigthBrownMedium(context),
-              ),
-              verticalSpace(3),
-              AppTextFormField(
-                suffixIcon: Icon(Icons.visibility, size: 22.r),
-                hintText: "● ● ● ● ● ● ● ● ● ",
-                validator: (vlaue) {},
-              ),
-              verticalSpace(16),
-              Text(
-                "Confirm Password",
-                style: TextStyles.font13LigthBrownMedium(context),
-              ),
-              verticalSpace(3),
-              AppTextFormField(
-                suffixIcon: Icon(Icons.visibility, size: 22.r),
-                hintText: "● ● ● ● ● ● ● ● ● ",
-                validator: (vlaue) {},
-              ),
-
+              SignUpForm(),
               verticalSpace(26.0),
               Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
 
                 children: [
-                  // verticalSpace(24),
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: "    By continuing, you agree to \n",
-                          style: TextStyles.font14DarkTaupeRegularLeagueSpartan,
-                        ),
-
-                        TextSpan(
-                          text: "Terms of Use",
-                          style:
-                              TextStyles.font14DarkTaupeSemiBoldLeagueSpartan,
-                        ),
-                        TextSpan(
-                          text: " and ",
-                          style: TextStyles.font14DarkTaupeRegularLeagueSpartan,
-                        ),
-                        TextSpan(
-                          text: "Privacy Policy.\n",
-                          style:
-                              TextStyles.font14DarkTaupeSemiBoldLeagueSpartan,
-                        ),
-                      ],
-                    ),
+                  TermsOfUse(),
+                  BlocBuilder<SignUpCubit, SignUpState>(
+                    buildWhen:
+                        (previous, current) =>
+                            current is SignUpLoading ||
+                            current is SignUpSuccess ||
+                            current is SignUpFailure,
+                    builder: (context, state) {
+                      return AppTextButton(
+                        onTap: () {
+                          _checkToData(context: context);
+                        },
+                        width: context.screenHeight / 4.4,
+                        text: "Sign Up",
+                      );
+                    },
                   ),
-
-                  AppTextButton(text: "Sign Up"),
-                  Padding(
-                    padding: EdgeInsets.only(
-                      top: MediaQuery.sizeOf(context).height / 80,
-                      right: MediaQuery.sizeOf(context).width / 70,
-                    ),
-                    child: Text(
-                      textScaler: TextScaler.linear(1.0),
-                      "or sign up with",
-                      style: TextStyles.font13DarkGrayishBrownLight(context),
-                    ),
-                  ),
+                  AppOrSignUpWith(),
                   verticalSpace(13),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -136,47 +73,30 @@ class SignUpScreen extends StatelessWidget {
                         AppAssets.imageAndSvg.facebookIcon,
                         width: 33.w,
                         height: 33.h,
-                        // width: MediaQuery.sizeOf(context).width / 33,
-                        // height: MediaQuery.sizeOf(context).width / 33,
                       ),
                       horizontalSpace(19.81),
                       SvgPicture.asset(
                         AppAssets.imageAndSvg.googleIcon,
                         width: 33.w,
                         height: 33.h,
-                        // width: MediaQuery.sizeOf(context).width / 9,
-                        // height: MediaQuery.sizeOf(context).width / 9,
                       ),
                     ],
                   ),
 
                   verticalSpace(9.12),
-                  GestureDetector(
+                  AppDoYouHaveAccound(
+                    accound: "Already have an account?",
+                    loginOrSingUp: "Login",
                     onTap: () {
                       context.pushNamedAndRemoveUntil(
                         Routes.login,
                         predicate: (_) => false,
                       );
                     },
-                    child: RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: "Already have an account? ",
-                            style: TextStyles.font13DarkGrayishBrownLight(
-                              context,
-                            ),
-                          ),
-                          TextSpan(
-                            text: "Log in",
-                            style: TextStyles.font13LigthBrownLight(context),
-                          ),
-                        ],
-                      ),
-                    ),
                   ),
                 ],
               ),
+              SignUpBlocBuilder(),
             ],
           ),
         ),
@@ -192,4 +112,10 @@ class SignUpScreen extends StatelessWidget {
     ),
     centerTitle: true,
   );
+
+  void _checkToData({required BuildContext context}) {
+    if (context.read<SignUpCubit>().formKey.currentState!.validate()) {
+      context.read<SignUpCubit>().getSignUp();
+    }
+  }
 }
