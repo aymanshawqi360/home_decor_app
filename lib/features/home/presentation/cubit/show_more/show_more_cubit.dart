@@ -1,7 +1,4 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
-import 'package:dio/dio.dart';
 import 'package:home_decor_app/core/networks/api_error_model.dart';
 import 'package:home_decor_app/core/networks/api_resulte.dart';
 import 'package:home_decor_app/features/home/domain/entities/categories_entity.dart';
