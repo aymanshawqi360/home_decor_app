@@ -19,7 +19,7 @@ class BestSellerCubit extends Cubit<BestSellerState> {
       emit(
         BestSellerFailure(
           errorMessage: ApiErrorModel(
-            message: response.errorMessage!.message.toString(),
+            errorMessage: response.errorMessage!.errorMessage.toString(),
           ),
         ),
       );

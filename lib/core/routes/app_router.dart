@@ -2,13 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:home_decor_app/core/di/dependency_injection.dart';
 import 'package:home_decor_app/core/routes/routes.dart';
-<<<<<<< HEAD
 import 'package:home_decor_app/features/forgot_password/presentation/pages/forgot_password_screen.dart';
 import 'package:home_decor_app/features/home/presentation/pages/button_navigate_between_screen.dart';
 import 'package:home_decor_app/features/home/presentation/pages/home_screen.dart';
-=======
-import 'package:home_decor_app/features/login/presentation/cubit/login_cubit.dart';
->>>>>>> features/login_api
 import 'package:home_decor_app/features/login/presentation/pages/login_screen.dart';
 import 'package:home_decor_app/features/onboarding/presentation/pages/onboarding_screen.dart';
 import 'package:home_decor_app/features/search/presentation/pages/search_screen.dart';
@@ -27,7 +23,6 @@ class AppRouter {
       case Routes.buttonNavigateBetweenScreen:
         return MaterialPageRoute(builder: (_) => ButtonNavigateBetweenScreen());
       case Routes.login:
-<<<<<<< HEAD
         return MaterialPageRoute(builder: (_) => LoginScreen());
       case Routes.signUp:
         return MaterialPageRoute(builder: (_) => SignUpScreen());
@@ -39,15 +34,6 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => HomeScreen());
       case Routes.search:
         return MaterialPageRoute(builder: (_) => SearchScreen());
-=======
-        return MaterialPageRoute(
-          builder:
-              (_) => BlocProvider(
-                create: (context) => LoginCubit(getIt()),
-                child: LoginScreen(),
-              ),
-        );
->>>>>>> features/login_api
 
       default:
         return null;

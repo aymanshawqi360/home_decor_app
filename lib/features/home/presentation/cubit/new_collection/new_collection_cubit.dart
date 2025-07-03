@@ -19,7 +19,7 @@ class NewCollectionCubit extends Cubit<NewCollectionState> {
       emit(
         NewCollectionFailure(
           errorMessage: ApiErrorModel(
-            message: response.errorMessage!.message.toString(),
+            errorMessage: response.errorMessage!.errorMessage.toString(),
           ),
         ),
       );
