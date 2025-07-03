@@ -5,8 +5,8 @@ part 'login_request_model.g.dart';
 class LoginRequestModel {
   @JsonKey(name: "username")
   String? userName;
-  String? passwrod;
-  LoginRequestModel({this.passwrod, this.userName});
+  String? password;
+  LoginRequestModel({this.password, this.userName});
   factory LoginRequestModel.fromJson(Map<String, dynamic> json) =>
       _$LoginRequestModelFromJson(json);
   Map<String, dynamic> toJson() => _$LoginRequestModelToJson(this);
