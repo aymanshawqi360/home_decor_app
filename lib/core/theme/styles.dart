@@ -194,4 +194,19 @@ class TextStyles {
     fontWeight: FontWeightHelper.light,
     color: ColorsMananger.darkGray,
   );
+  static TextStyle font10DarkTaupeRegular = GoogleFonts.leagueSpartan(
+    fontSize: 10.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorsMananger.darkTaupe,
+  );
+  static TextStyle font15LigthBrownsemiBold = GoogleFonts.poppins(
+    fontSize: 15.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    color: ColorsMananger.ligthBrown,
+  );
+  static TextStyle font12LigthBrownMedium = GoogleFonts.poppins(
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.medium,
+    color: ColorsMananger.ligthBrown,
+  );
 }
