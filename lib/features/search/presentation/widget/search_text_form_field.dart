@@ -1,12 +1,15 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:home_decor_app/core/helper/app_assets.dart';
 import 'package:home_decor_app/core/theme/colors.dart';
 import 'package:home_decor_app/core/theme/styles.dart';
 import 'package:home_decor_app/core/widgets/app_text_form_field.dart';
 
 class SearchTextFormField extends StatelessWidget {
-  const SearchTextFormField({super.key});
+  final void Function()? onTap;
+  const SearchTextFormField({Key? key, this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +22,13 @@ class SearchTextFormField extends StatelessWidget {
         child: CircleAvatar(
           backgroundColor: ColorsMananger.ligthPink,
 
-          child: Image.asset(
-            AppAssets.imageAndSvg.filter,
-            scale: 3.sp,
-            color: ColorsMananger.darkBrown,
+          child: GestureDetector(
+            onTap: onTap,
+            child: Image.asset(
+              AppAssets.imageAndSvg.filter,
+              scale: 3.sp,
+              color: ColorsMananger.darkBrown,
+            ),
           ),
         ),
       ),
