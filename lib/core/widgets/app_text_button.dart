@@ -12,14 +12,16 @@ class AppTextButton extends StatelessWidget {
   final Decoration? decoration;
   final String? text;
   final void Function()? onTap;
+  final TextStyle? textStyles;
   const AppTextButton({
-    Key? key,
     this.width,
     this.height,
     this.decoration,
     this.text,
     this.onTap,
-  }) : super(key: key);
+    this.textStyles,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,7 @@ class AppTextButton extends StatelessWidget {
         child: Center(
           child: Text(
             text ?? "Log In",
-            style: TextStyles.font20LigthBrownSemiBold,
+            style: textStyles ?? TextStyles.font20LigthBrownSemiBold,
           ),
         ),
       ),
