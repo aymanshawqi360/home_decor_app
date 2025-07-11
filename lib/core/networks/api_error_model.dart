@@ -13,13 +13,13 @@ class ApiErrorModel {
   Map<String, dynamic> toJson() => _$ApiErrorModelToJson(this);
 
   String allSignUpError() {
-    if (errors == null && errors!.isEmpty)
+    if (errors == null || errors!.isEmpty)
       return errorMessage ?? "Unknown error occurred";
     final message = StringBuffer();
     for (var data in errors!.entries) {
-      for (var d in data.value) {
-        message.writeln(d);
-      }
+      // for (var d in data.value) {
+      // }
+      message.writeln(data.value);
     }
     return message.toString();
   }
