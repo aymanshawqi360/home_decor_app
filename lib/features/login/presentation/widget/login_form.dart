@@ -47,16 +47,17 @@ class _LoginFormState extends State<LoginForm> {
             ),
             child: Text(
               textScaler: TextScaler.linear(1.0),
-              "Email",
+              "UserNmae",
               style: TextStyles.font15DarkGrayishBrownMedium(context),
             ),
           ),
 
           AppTextFormField(
+            hintText: "UserName",
             controller: controllerEmail,
             validator: (value) {
               if (value?.isEmpty ?? value == null) {
-                return "You are not enter email";
+                return "You are not enter userName";
               }
             },
           ),
