@@ -29,7 +29,7 @@ class HomeDecorApp extends StatelessWidget {
           initialRoute:
               (AppString.isLoggedInUser)
                   ? Routes.buttonNavigateBetweenScreen
-                  : Routes.signUp,
+                  : Routes.login,
 
           onGenerateRoute: _appRouter.generateRoute,
         );
