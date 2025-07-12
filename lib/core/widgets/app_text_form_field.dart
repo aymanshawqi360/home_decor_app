@@ -13,10 +13,13 @@ class AppTextFormField extends StatelessWidget {
   final String? hintText;
   final TextStyle? hintStyle;
   final bool? obscureText;
-  final Function(String?) validator;
+  final Function(String?)? validator;
   final Color? cursorColor;
   final EdgeInsetsGeometry? contentPadding;
   final TextEditingController? controller;
+  final void Function(String)? onChanged;
+  final void Function(String)? onFieldSubmitted;
+  final bool? autofocus;
   const AppTextFormField({
     super.key,
     this.horizontal,
@@ -26,21 +29,24 @@ class AppTextFormField extends StatelessWidget {
     this.hintText,
     this.hintStyle,
     this.obscureText,
-    required this.validator,
+    this.validator,
     this.cursorColor,
     this.focusedBorder,
     this.enabledBorder,
     this.contentPadding,
     this.controller,
+    this.onChanged,
+    this.onFieldSubmitted,
+    this.autofocus,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autofocus: autofocus ?? false,
       controller: controller,
       style: TextStyle(color: ColorsMananger.darkGrayishBrown),
       cursorColor: cursorColor ?? ColorsMananger.darkGrayishBrown,
-
       decoration: InputDecoration(
         contentPadding:
             contentPadding ??
@@ -49,14 +55,12 @@ class AppTextFormField extends StatelessWidget {
             enabledBorder ??
             OutlineInputBorder(
               borderSide: BorderSide(color: ColorsMananger.linen, width: 2.0),
-
               borderRadius: BorderRadius.circular(25),
             ),
         focusedBorder:
             focusedBorder ??
             OutlineInputBorder(
               borderSide: BorderSide(color: ColorsMananger.linen, width: 2.0),
-
               borderRadius: BorderRadius.circular(25),
             ),
 
@@ -82,8 +86,10 @@ class AppTextFormField extends StatelessWidget {
       obscureText: obscureText ?? false,
 
       validator: (value) {
-        return validator(value);
+        return validator!(value);
       },
+      onChanged: onChanged,
+      onFieldSubmitted: onFieldSubmitted,
     );
   }
 }
