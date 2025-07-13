@@ -4,17 +4,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:home_decor_app/core/helper/app_assets.dart';
 import 'package:home_decor_app/core/helper/extensions.dart';
 import 'package:home_decor_app/core/helper/spacing.dart';
-import 'package:home_decor_app/core/networks/save_the_token.dart';
 import 'package:home_decor_app/core/routes/routes.dart';
 import 'package:home_decor_app/core/theme/colors.dart';
 import 'package:home_decor_app/core/theme/styles.dart';
-import 'package:home_decor_app/core/widgets/app_page_view.dart';
-import 'package:home_decor_app/features/home/presentation/cubit/categories/categories_state.dart';
 import 'package:home_decor_app/features/home/presentation/widget/best_seller/best_seller_bloc_builder.dart';
 import 'package:home_decor_app/features/home/presentation/widget/categories_list/categories_bloc_builder.dart';
-import 'package:home_decor_app/features/home/presentation/widget/best_seller/best_seller_list_view_item.dart';
 import 'package:home_decor_app/features/home/presentation/widget/new_collection/new_collection_bloc_builder.dart';
-import 'package:home_decor_app/features/home/presentation/widget/new_collection/new_collection_grid_view_list.dart';
 import 'package:home_decor_app/features/home/presentation/widget/show_more/caregories_and_show_more.dart';
 import 'package:home_decor_app/features/home/presentation/widget/show_more_best_seller/show_more_best_seller.dart';
 import 'package:home_decor_app/features/home/presentation/widget/slider/home_slider.dart';
@@ -39,14 +34,14 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             children: [
               HomeSlider(),
-              //   verticalSpace(20),
+
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   CaregoriesAndShowMore(),
                   verticalSpace(20),
                   CategoriesBlocBuilder(),
-                  //    ListViewCategories(),
+
                   verticalSpace(13.0),
                   ShowMoreBestSeller(),
                   verticalSpace(15),
