@@ -16,11 +16,9 @@ class CategoriesListView extends StatefulWidget {
 class _CategoriesListViewState extends State<CategoriesListView> {
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: context.screenHeight / 9.5,
-
-      // AspectRatio(
-      //   aspectRatio: 15 / 4,
+    return Container(
+      // color: Colors.red,
+      constraints: BoxConstraints(maxHeight: context.screenHeight / 9.0),
       child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
