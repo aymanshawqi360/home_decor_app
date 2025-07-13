@@ -40,7 +40,7 @@ class AppTextButton extends StatelessWidget {
             ),
         child: Center(
           child: Text(
-            text ?? "Log In",
+            text ?? "LogIn",
             style: textStyles ?? TextStyles.font20LigthBrownSemiBold,
           ),
         ),
