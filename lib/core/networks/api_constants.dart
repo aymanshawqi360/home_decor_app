@@ -1,4 +1,4 @@
-enum Token { ACCESS_TOKEN, REFRESH_TOKEN }
+enum Token { accesToken, refreshToken }
 
 class ApiConstants {
   static const String baseUrl = "https://decor.up.railway.app/";
