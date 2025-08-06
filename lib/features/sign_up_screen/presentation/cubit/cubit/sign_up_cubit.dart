@@ -38,10 +38,10 @@ class SignUpCubit extends Cubit<SignUpState> {
     );
 
     if (response is Success<SignUpEntity>) {
-      await _getToken(
-        key: response.data!.accessToken.toString(),
-        value: response.data!.refreshToken.toString(),
-      );
+      // await _getToken(
+      //   key: response.data!.accessToken.toString(),
+      //   value: response.data!.refreshToken.toString(),
+      // );
       emit(SignUpSuccess());
     } else if (response is Failure<SignUpEntity>) {
       emit(
@@ -53,10 +53,6 @@ class SignUpCubit extends Cubit<SignUpState> {
         ),
       );
     }
-  }
-
-  _getToken({required String key, required String value}) {
-    SaveTheToken.setData(accessToken: key, refreshToken: value);
   }
 
   void cheackIsPassword() {
