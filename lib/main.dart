@@ -10,14 +10,17 @@ import 'package:home_decor_app/home_decor_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   setupGetIt();
   await checkIfloggedInUser();
   runApp(HomeDecorApp(AppRouter()));
 }
 
 checkIfloggedInUser() async {
-  String? user = await SaveTheToken.getData(Token.ACCESS_TOKEN.name);
+  String? user = await SaveTheToken.getData(Token.accesToken.name);
   if (user.isNullOrEmp()) {
     AppString.isLoggedInUser = false;
   } else {
