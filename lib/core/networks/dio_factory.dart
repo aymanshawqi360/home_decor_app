@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:home_decor_app/core/networks/api_interceptors_wrapper.dart';
 
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
@@ -31,5 +32,8 @@ class DioFactory {
         responseHeader: true,
       ),
     );
+    // dio?.interceptors.add(ApiInterceptorsWrapper(dio));
+    ApiInterceptorsWrapper(dio: dio!);
+    // dio?.interceptors.add(ApiInterceptorsWrapper(dio: dio!));
   }
 }
