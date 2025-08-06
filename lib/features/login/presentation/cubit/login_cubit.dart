@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:home_decor_app/core/networks/api_error_model.dart';
 import 'package:home_decor_app/core/networks/api_result.dart';
+import 'package:home_decor_app/core/networks/save_the_token.dart';
 import 'package:home_decor_app/features/login/domain/entity/login_request_entity.dart';
 import 'package:home_decor_app/features/login/domain/entity/login_response.entity.dart';
 import 'package:home_decor_app/features/login/domain/usecase/login_use_case.dart';
@@ -23,6 +24,11 @@ class LoginCubit extends Cubit<LoginState> {
       ),
     );
     if (response is Success<LoginResponseEntity>) {
+      // response.data.
+      await _getToken(
+        accessToken: response.data?.accessToken ?? "",
+        refreshToken: response.data?.accessToken ?? "",
+      );
       emit(LoginSuccess());
     } else if (response is Failure<LoginResponseEntity>) {
       emit(
@@ -34,6 +40,10 @@ class LoginCubit extends Cubit<LoginState> {
         ),
       );
     }
+  }
+
+  _getToken({required String accessToken, required String refreshToken}) {
+    SaveTheToken.setData(accessToken: accessToken, refreshToken: refreshToken);
   }
 
   void hidePasswordWord() {
