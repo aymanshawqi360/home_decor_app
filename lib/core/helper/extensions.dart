@@ -40,4 +40,5 @@ extension ContextExtensions on BuildContext {
 
 extension StringExtension on String? {
   bool isNullOrEmp() => this == null || this == "";
+  bool isNotNullOrEmp() => this != null;
 }
