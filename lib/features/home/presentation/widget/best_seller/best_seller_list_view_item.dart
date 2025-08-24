@@ -23,7 +23,7 @@ class BestSellerListViewItem extends StatelessWidget {
       margin: EdgeInsetsDirectional.only(start: index == 0 ? 0 : 1.w),
 
       decoration: BoxDecoration(
-        color: ColorsMananger.ligthPink,
+        color: ColorsManager.ligthPink,
         borderRadius: BorderRadius.circular(12.r),
       ),
       child: Stack(
