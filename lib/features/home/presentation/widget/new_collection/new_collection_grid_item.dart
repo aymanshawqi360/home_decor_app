@@ -1,10 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:home_decor_app/core/helper/extensions.dart';
 import 'package:home_decor_app/core/helper/spacing.dart';
 import 'package:home_decor_app/core/theme/colors.dart';
 import 'package:home_decor_app/core/theme/styles.dart';
+import 'package:home_decor_app/features/favorite/presentation/cubit/cubit/favorite_cubit.dart';
+import 'package:home_decor_app/features/favorite/presentation/cubit/cubit/favorite_state.dart';
 import 'package:home_decor_app/features/home/domain/entities/new_collection_entity.dart';
 
 class NewCollectionGridItem extends StatelessWidget {
@@ -16,7 +19,7 @@ class NewCollectionGridItem extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Container(
+        SizedBox(
           width: context.screenWidth,
           height: 100,
           child: CachedNetworkImage(
@@ -64,7 +67,7 @@ class NewCollectionGridItem extends StatelessWidget {
                 ),
               ),
 
-              Divider(color: ColorsMananger.ligthPink),
+              Divider(color: ColorsManager.ligthPink),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -78,21 +81,38 @@ class NewCollectionGridItem extends StatelessWidget {
 
                   Row(
                     children: [
-                      CircleAvatar(
-                        backgroundColor: ColorsMananger.ligthPink,
-                        maxRadius: 13,
-                        minRadius: 13,
-                        child: Center(
-                          child: Icon(
-                            Icons.favorite_rounded,
-                            size: 17,
-                            color: Colors.white,
+                      GestureDetector(
+                        onTap: () {
+                          context.read<FavoriteCubit>().addingFavorite(
+                            path: newCollectionEntity.id.toString(),
+                          );
+                        },
+                        child: CircleAvatar(
+                          backgroundColor: ColorsManager.ligthPink,
+                          maxRadius: 13,
+                          minRadius: 13,
+                          child: Center(
+                            child: BlocBuilder<FavoriteCubit, FavoriteState>(
+                              builder: (context, state) {
+                                final cubit = context.watch<FavoriteCubit>();
+                                return Icon(
+                                  Icons.favorite_rounded,
+                                  size: 17,
+                                  color:
+                                      cubit.checkFavorite(
+                                            newCollectionEntity.id ?? 0,
+                                          )
+                                          ? ColorsManager.red
+                                          : ColorsManager.white,
+                                );
+                              },
+                            ),
                           ),
                         ),
                       ),
                       horizontalSpace(5.23),
                       CircleAvatar(
-                        backgroundColor: ColorsMananger.ligthPink,
+                        backgroundColor: ColorsManager.ligthPink,
                         radius: 13,
                         child: Center(
                           child: Icon(Icons.add, size: 20, color: Colors.white),
