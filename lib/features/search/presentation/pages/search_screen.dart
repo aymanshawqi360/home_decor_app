@@ -46,6 +46,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
   AppBar searchAppBar(BuildContext context) {
     return AppBar(
+      surfaceTintColor: Colors.transparent,
       leading: GestureDetector(
         onTap: () {
           context.pop();
@@ -86,7 +87,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       width: context.screenWidth / 10,
                       height: context.screenHeight / 130,
                       decoration: BoxDecoration(
-                        color: ColorsMananger.darkGray,
+                        color: ColorsManager.darkGray,
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
