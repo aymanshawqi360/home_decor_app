@@ -22,14 +22,14 @@ class SearchTextFormField extends StatelessWidget {
           suffixIcon: Transform.scale(
             scale: 0.7,
             child: CircleAvatar(
-              backgroundColor: ColorsMananger.ligthPink,
+              backgroundColor: ColorsManager.ligthPink,
 
               child: GestureDetector(
                 onTap: onTap,
                 child: Image.asset(
                   AppAssets.imageAndSvg.filter,
                   scale: 3.sp,
-                  color: ColorsMananger.darkBrown,
+                  color: ColorsManager.darkBrown,
                 ),
               ),
             ),
@@ -42,17 +42,11 @@ class SearchTextFormField extends StatelessWidget {
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30.r),
-            borderSide: BorderSide(
-              color: ColorsMananger.ligthBrown,
-              width: 1.3,
-            ),
+            borderSide: BorderSide(color: ColorsManager.ligthBrown, width: 1.3),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30.r),
-            borderSide: BorderSide(
-              color: ColorsMananger.ligthBrown,
-              width: 1.3,
-            ),
+            borderSide: BorderSide(color: ColorsManager.ligthBrown, width: 1.3),
           ),
 
           onFieldSubmitted: (value) {

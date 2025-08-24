@@ -61,16 +61,16 @@ class HomeCatedories extends StatelessWidget {
       decoration: BoxDecoration(
         color:
             selectionNumber == startIndex
-                ? ColorsMananger.linen
-                : ColorsMananger.white,
+                ? ColorsManager.linen
+                : ColorsManager.white,
         borderRadius: BorderRadius.circular(13.r),
       ),
       child: CachedNetworkImage(
         imageUrl: categoryEntity.icon.toString(),
         color:
             selectionNumber == startIndex
-                ? ColorsMananger.ligthBrown
-                : ColorsMananger.lightBeigepink,
+                ? ColorsManager.ligthBrown
+                : ColorsManager.lightBeigepink,
 
         placeholder: (context, url) {
           return Container(
@@ -88,7 +88,7 @@ class HomeCatedories extends StatelessWidget {
             width: 64.0.w,
             height: 64.0.h,
             decoration: BoxDecoration(
-              color: ColorsMananger.lightBeigepink,
+              color: ColorsManager.lightBeigepink,
 
               borderRadius: BorderRadius.circular(13.r),
             ),

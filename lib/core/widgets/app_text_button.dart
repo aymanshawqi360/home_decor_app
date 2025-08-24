@@ -35,7 +35,7 @@ class AppTextButton extends StatelessWidget {
         decoration:
             decoration ??
             BoxDecoration(
-              color: ColorsMananger.ligthPink,
+              color: ColorsManager.ligthPink,
               borderRadius: BorderRadius.circular(19.r),
             ),
         child: Center(

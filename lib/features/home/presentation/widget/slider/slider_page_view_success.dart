@@ -19,14 +19,17 @@ class SliderPageViewSuccess extends StatefulWidget {
 
 class _SliderPageViewSuccessState extends State<SliderPageViewSuccess> {
   late PageController _controller;
-  late ScrollPhysics scrollPhysics;
+  // late ScrollPhysics scrollPhysics;
 
   int timerIndex = 0;
   bool isScrollPhysics = true;
   @override
   void initState() {
+    //context.read<SliderCubit>().getSlider();
     _controller = PageController();
-    scrollPhysics = ScrollPhysics();
+    // scrollPhysics = ScrollPhysics();
+    // WidgetsBinding.instance.addPersistentFrameCallback((_) {
+    // });
     _pageViewTimer();
     super.initState();
   }
@@ -34,6 +37,7 @@ class _SliderPageViewSuccessState extends State<SliderPageViewSuccess> {
   _pageViewTimer() {
     int lastSilder = 0;
     Timer.periodic(Duration(seconds: 3), (_) {
+      if (!_controller.hasClients) return;
       if (timerIndex < widget._sliderList.length - 1) {
         timerIndex++;
         _controller.animateToPage(
@@ -53,6 +57,7 @@ class _SliderPageViewSuccessState extends State<SliderPageViewSuccess> {
   @override
   void dispose() {
     _controller.dispose();
+
     super.dispose();
   }
 
@@ -95,8 +100,8 @@ class _SliderPageViewSuccessState extends State<SliderPageViewSuccess> {
                 decoration: BoxDecoration(
                   color:
                       i == slider
-                          ? ColorsMananger.ligthPink
-                          : ColorsMananger.darkGrayishBrown,
+                          ? ColorsManager.ligthPink
+                          : ColorsManager.darkGrayishBrown,
                   borderRadius: BorderRadius.circular(12.r),
                 ),
               ),

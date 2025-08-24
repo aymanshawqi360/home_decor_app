@@ -32,9 +32,9 @@ class _WidgetSliderThemeState extends State<WidgetSliderTheme> {
             min:
                 cubit.resultSearchPriceRangeEntit.minPrice ??
                 ApiConstants.minPrice,
-            activeColor: ColorsMananger.ligthPink.withOpacity(1),
-            inactiveColor: ColorsMananger.lightBeigepink.withOpacity(0.6),
-            thumbColor: ColorsMananger.ligthBrown,
+            activeColor: ColorsManager.ligthPink.withOpacity(1),
+            inactiveColor: ColorsManager.lightBeigepink.withOpacity(0.6),
+            thumbColor: ColorsManager.ligthBrown,
             label: "\$${cubit.maxPrice.round()}",
             overlayColor: WidgetStateColor.transparent,
             divisions: cubit.maxPrice.toInt(),

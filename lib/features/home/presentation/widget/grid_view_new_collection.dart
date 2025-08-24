@@ -51,7 +51,7 @@ class GridViewNewCollection extends StatelessWidget {
                       "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                       style: TextStyles.font12DarkTaupeLight,
                     ),
-                    Divider(color: ColorsMananger.ligthPink),
+                    Divider(color: ColorsManager.ligthPink),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -64,7 +64,7 @@ class GridViewNewCollection extends StatelessWidget {
                         Row(
                           children: [
                             CircleAvatar(
-                              backgroundColor: ColorsMananger.ligthPink,
+                              backgroundColor: ColorsManager.ligthPink,
                               maxRadius: 13,
                               minRadius: 13,
                               child: Center(
@@ -77,7 +77,7 @@ class GridViewNewCollection extends StatelessWidget {
                             ),
                             horizontalSpace(5.23),
                             CircleAvatar(
-                              backgroundColor: ColorsMananger.ligthPink,
+                              backgroundColor: ColorsManager.ligthPink,
                               radius: 13,
                               child: Center(
                                 child: Icon(

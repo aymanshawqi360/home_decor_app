@@ -1,7 +1,11 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:home_decor_app/core/networks/api_constants.dart';
 import 'package:home_decor_app/core/networks/api_error_model.dart';
 import 'package:home_decor_app/core/networks/api_result.dart';
+import 'package:home_decor_app/core/networks/save_the_token.dart';
 import 'package:home_decor_app/features/login/domain/entity/login_request_entity.dart';
 import 'package:home_decor_app/features/login/domain/entity/login_response.entity.dart';
 import 'package:home_decor_app/features/login/domain/usecase/login_use_case.dart';
@@ -23,6 +27,25 @@ class LoginCubit extends Cubit<LoginState> {
       ),
     );
     if (response is Success<LoginResponseEntity>) {
+      //response.data.
+      debugPrint(
+        "accessToken-------------------------------${response.data!.accessToken}",
+      );
+      debugPrint(
+        "refreshToken------------------------------${response.data!.refreshToken}",
+      );
+      // await _getToken(
+      //   accessToken: response.data?.accessToken ?? "",
+      //   refreshToken: response.data?.accessToken ?? "",
+      // );
+      await _getToken(
+        key: Token.accesToken.name,
+        value: response.data?.accessToken ?? "",
+      );
+      await _getToken(
+        key: Token.refreshToken.name,
+        value: response.data?.refreshToken ?? "",
+      );
       emit(LoginSuccess());
     } else if (response is Failure<LoginResponseEntity>) {
       emit(
@@ -34,6 +57,10 @@ class LoginCubit extends Cubit<LoginState> {
         ),
       );
     }
+  }
+
+  _getToken({required String key, required String value}) {
+    SaveTheToken.setData(key: key, value: value);
   }
 
   void hidePasswordWord() {

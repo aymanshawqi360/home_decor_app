@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
 import 'package:home_decor_app/core/networks/api_error_model.dart';
 import 'package:home_decor_app/core/networks/api_resulte.dart';
-import 'package:home_decor_app/core/networks/save_the_token.dart';
 import 'package:home_decor_app/features/sign_up_screen/domain/entitys/sign_up_entity.dart';
 import 'package:home_decor_app/features/sign_up_screen/domain/entitys/sign_up_request_entity.dart';
 import 'package:home_decor_app/features/sign_up_screen/domain/use_cases/sign_up_use_cases.dart';
@@ -20,8 +19,8 @@ class SignUpCubit extends Cubit<SignUpState> {
   final constantDateOfBirth = TextEditingController();
   final constantPassword = TextEditingController();
   final constantConfirmPassword = TextEditingController();
-  bool isPassword = false;
-  bool isConfirmPassword = false;
+  bool isPassword = true;
+  bool isConfirmPassword = true;
   void getSignUp() async {
     emit(SignUpLoading());
     final response = await _signUpUseCases.getSignUp(
@@ -38,10 +37,18 @@ class SignUpCubit extends Cubit<SignUpState> {
     );
 
     if (response is Success<SignUpEntity>) {
-      await _getToken(
-        key: response.data!.accessToken.toString(),
-        value: response.data!.refreshToken.toString(),
-      );
+      // await _getToken(
+      //   accessToken: response.data!.accessToken.toString(),
+      //   refreshToken: response.data!.refreshToken.toString(),
+      // );
+      // await _getToken(
+      //   key: Token.accesToken.name,
+      //   value: response.data?.accessToken ?? "",
+      // );
+      // await _getToken(
+      //   key: Token.refreshToken.name,
+      //   value: response.data?.refreshToken ?? "",
+      // );
       emit(SignUpSuccess());
     } else if (response is Failure<SignUpEntity>) {
       emit(
@@ -55,10 +62,6 @@ class SignUpCubit extends Cubit<SignUpState> {
     }
   }
 
-  _getToken({required String key, required String value}) {
-    SaveTheToken.setData(accessToken: key, refreshToken: value);
-  }
-
   void cheackIsPassword() {
     isPassword = !isPassword;
 
@@ -69,6 +72,10 @@ class SignUpCubit extends Cubit<SignUpState> {
     isConfirmPassword = !isConfirmPassword;
     emit(SignUpisConfirmPasseord(isConfirmPasseord: isConfirmPassword));
   }
+
+  // _getToken({required String key, required String value}) {
+  //   SaveTheToken.setData(key: key, value: value);
+  // }
 
   // String getDateOfBirth(String userDateOfBirth) {
   //   List<String> date = userDateOfBirth.split('/');

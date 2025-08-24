@@ -19,7 +19,7 @@ class ViewBestSellerItem extends StatelessWidget {
         left: context.screenWidth / 35,
       ),
       decoration: BoxDecoration(
-        color: ColorsMananger.ligthPink,
+        color: ColorsManager.ligthPink,
         borderRadius: BorderRadius.circular(12.r),
       ),
       child: Stack(

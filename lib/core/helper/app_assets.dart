@@ -20,4 +20,6 @@ class AppAssets {
   String wishlistIcon = "assets/svg/ligthPink_wishlist.svg";
   String cartIcon = "assets/svg/ligthPink_cart.svg";
   String searchIcon = "assets/svg/search_icon.svg";
+  String favoriteEmpty = "assets/svg/favorite.svg";
+  String deleteIcon = "assets/svg/delete_icon.svg";
 }

@@ -8,4 +8,5 @@ class Routes {
   static const String buttonNavigateBetweenScreen =
       "/buttonNavigateBetweenScreen";
   static const String search = "/search_screen";
+  static const String favorite = "/favorite_screen";
 }

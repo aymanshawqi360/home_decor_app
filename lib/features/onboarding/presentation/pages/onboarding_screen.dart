@@ -89,9 +89,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(22.r),
                 color:
-                    index == i
-                        ? ColorsMananger.ligthPink
-                        : ColorsMananger.linen,
+                    index == i ? ColorsManager.ligthPink : ColorsManager.linen,
               ),
             ),
           ),

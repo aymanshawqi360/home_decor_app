@@ -95,7 +95,7 @@ class _LoginFormState extends State<LoginForm> {
                 hintText: '●●●●●●●●',
                 hintStyle: TextStyle(
                   letterSpacing: 5,
-                  color: ColorsMananger.lightBeigepink,
+                  color: ColorsManager.lightBeigepink,
                 ),
                 validator: (value) {
                   if (value?.isEmpty ?? value == null) {

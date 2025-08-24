@@ -28,7 +28,7 @@ class ButtomNavigate extends StatelessWidget {
         width: 133.w,
         height: 41.h,
         decoration: BoxDecoration(
-          color: ColorsMananger.ligthPink,
+          color: ColorsManager.ligthPink,
           borderRadius: BorderRadius.circular(23.r),
         ),
         child: Center(

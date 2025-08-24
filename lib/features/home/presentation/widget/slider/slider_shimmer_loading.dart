@@ -58,8 +58,8 @@ class SliderShimmerLoading extends StatelessWidget {
             decoration: BoxDecoration(
               color:
                   i == index
-                      ? ColorsMananger.ligthPink
-                      : ColorsMananger.darkGrayishBrown,
+                      ? ColorsManager.ligthPink
+                      : ColorsManager.darkGrayishBrown,
               borderRadius: BorderRadius.circular(12.r),
             ),
           ).redacted(
