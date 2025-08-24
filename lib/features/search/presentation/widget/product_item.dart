@@ -1,11 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:home_decor_app/core/helper/extensions.dart';
 import 'package:home_decor_app/core/helper/spacing.dart';
 import 'package:home_decor_app/core/networks/api_constants.dart';
 import 'package:home_decor_app/core/theme/colors.dart';
 import 'package:home_decor_app/core/theme/styles.dart';
+import 'package:home_decor_app/features/favorite/presentation/cubit/cubit/favorite_cubit.dart';
+import 'package:home_decor_app/features/favorite/presentation/cubit/cubit/favorite_state.dart';
 import 'package:home_decor_app/features/search/domain/entity/search_response_model_entity.dart';
 
 class ProductItem extends StatelessWidget {
@@ -14,6 +17,7 @@ class ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubitFavorite = context.read<FavoriteCubit>();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -68,7 +72,7 @@ class ProductItem extends StatelessWidget {
                 ),
               ),
 
-              const Divider(color: ColorsMananger.ligthPink),
+              const Divider(color: ColorsManager.ligthPink),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -82,21 +86,38 @@ class ProductItem extends StatelessWidget {
 
                   Row(
                     children: [
-                      const CircleAvatar(
-                        backgroundColor: ColorsMananger.ligthPink,
-                        maxRadius: 13,
-                        minRadius: 13,
-                        child: Center(
-                          child: Icon(
-                            Icons.favorite_rounded,
-                            size: 17,
-                            color: Colors.white,
+                      GestureDetector(
+                        onTap: () {
+                          cubitFavorite.addingFavorite(
+                            path: productItem.id.toString(),
+                          );
+                        },
+                        child: CircleAvatar(
+                          backgroundColor: ColorsManager.ligthPink,
+                          maxRadius: 13,
+                          minRadius: 13,
+                          child: Center(
+                            child: BlocBuilder<FavoriteCubit, FavoriteState>(
+                              builder: (context, state) {
+                                return Icon(
+                                  Icons.favorite_rounded,
+                                  size: 17,
+
+                                  color:
+                                      cubitFavorite.listFavorite.any(
+                                            (test) => test.id == productItem.id,
+                                          )
+                                          ? Colors.red
+                                          : Colors.white,
+                                );
+                              },
+                            ),
                           ),
                         ),
                       ),
                       horizontalSpace(5.23),
                       const CircleAvatar(
-                        backgroundColor: ColorsMananger.ligthPink,
+                        backgroundColor: ColorsManager.ligthPink,
                         radius: 13,
                         child: Center(
                           child: Icon(Icons.add, size: 20, color: Colors.white),
