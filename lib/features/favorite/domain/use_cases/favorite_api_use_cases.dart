@@ -1,5 +1,4 @@
 import 'package:home_decor_app/core/networks/api_result.dart';
-import 'package:home_decor_app/features/favorite/domain/entity/favorite_api_request_entity.dart';
 import 'package:home_decor_app/features/favorite/domain/entity/favorite_api_response_entity.dart';
 import 'package:home_decor_app/features/favorite/domain/entity/list_favorite_api_response_entity.dart';
 import 'package:home_decor_app/features/favorite/domain/repo/favorite_repo.dart';
