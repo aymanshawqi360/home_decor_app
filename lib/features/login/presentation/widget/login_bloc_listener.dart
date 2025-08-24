@@ -64,7 +64,7 @@ class LoginBlocListener extends StatelessWidget {
               },
               child: Text(
                 "Cancel",
-                style: TextStyle(color: ColorsMananger.darkGray),
+                style: TextStyle(color: ColorsManager.darkGray),
               ),
             ),
           ],
@@ -83,13 +83,13 @@ class LoginBlocListener extends StatelessWidget {
               width: context.screenWidth / 7,
               height: context.screenWidth / 7,
               decoration: BoxDecoration(
-                color: ColorsMananger.darkBrown,
+                color: ColorsManager.darkBrown,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Transform.scale(
                 scale: 0.4,
                 child: CircularProgressIndicator(
-                  color: ColorsMananger.ligthBrown,
+                  color: ColorsManager.ligthBrown,
                   strokeWidth: 5,
                 ),
               ),
