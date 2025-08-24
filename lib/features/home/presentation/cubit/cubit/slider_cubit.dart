@@ -6,14 +6,14 @@ import 'package:home_decor_app/features/home/domain/use_cases/slider_use_cases.d
 import 'package:home_decor_app/features/home/presentation/cubit/cubit/slider_state.dart';
 
 class SliderCubit extends Cubit<SliderState> {
-  final SliderUseCases _sliderUseCases;
-  SliderCubit(this._sliderUseCases) : super(SliderInitial());
+  final SliderUseCases sliderUseCases;
+  SliderCubit({required this.sliderUseCases}) : super(SliderInitial());
   List<SliderEntity> sliderLoadingLength = [];
   int timer = 0;
 
   void getSlider() async {
     emit(SliderLoading(silderLoadingLength: sliderLoadingLength));
-    final response = await _sliderUseCases.getSlider();
+    final response = await sliderUseCases.getSlider();
 
     if (response is Success<List<SliderEntity>>) {
       sliderLoadingLength = response.data!;
