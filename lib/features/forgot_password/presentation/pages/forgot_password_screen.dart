@@ -43,7 +43,7 @@ class ForgotPasswordScreen extends StatelessWidget {
             height: MediaQuery.sizeOf(context).height / 1.4,
             width: MediaQuery.sizeOf(context).width,
             decoration: BoxDecoration(
-              color: ColorsMananger.linen,
+              color: ColorsManager.linen,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(31.r),
                 topRight: Radius.circular(31.r),
@@ -70,7 +70,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                       ),
                       verticalSpace(3),
                       AppTextFormField(
-                        fillColor: ColorsMananger.white,
+                        fillColor: ColorsManager.white,
 
                         validator: (value) {},
                       ),
