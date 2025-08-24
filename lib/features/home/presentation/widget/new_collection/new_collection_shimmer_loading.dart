@@ -61,7 +61,7 @@ class NewCollectionShimmerLoading extends StatelessWidget {
                     ),
                   ),
 
-                  Divider(color: ColorsMananger.ligthPink),
+                  Divider(color: ColorsManager.ligthPink),
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
