@@ -43,13 +43,13 @@ class SetPasswordScreen extends StatelessWidget {
                       child: Icon(
                         Icons.visibility,
                         size: 22.r,
-                        color: ColorsMananger.ligthBrown,
+                        color: ColorsManager.ligthBrown,
                       ),
                     ),
                     hintText: "●●●●●●●●",
                     hintStyle: TextStyle(
                       letterSpacing: 5,
-                      color: ColorsMananger.lightBeigepink,
+                      color: ColorsManager.lightBeigepink,
                     ),
                     validator: (value) {},
                   ),
@@ -65,13 +65,13 @@ class SetPasswordScreen extends StatelessWidget {
                       child: Icon(
                         Icons.visibility,
                         size: 22.r,
-                        color: ColorsMananger.ligthBrown,
+                        color: ColorsManager.ligthBrown,
                       ),
                     ),
                     hintText: "●●●●●●●●",
                     hintStyle: TextStyle(
                       letterSpacing: 5,
-                      color: ColorsMananger.lightBeigepink,
+                      color: ColorsManager.lightBeigepink,
                     ),
                     validator: (value) {},
                   ),
