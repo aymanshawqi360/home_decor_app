@@ -16,9 +16,17 @@ class ApiInterceptorsWrapper extends Interceptor {
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) async {
-    final accessToken = await SaveTheToken.getData(Token.accesToken.toString());
-    if (accessToken.isNotNullOrEmp()) {
+    // final excludedEndpoints = ['/login', '/signup', '/token/refresh/'];
+
+    // if (!excludedEndpoints.any((test) => options.path.contains(test))) {
+    String accessToken =
+        await SaveTheToken.getData(Token.accesToken.name) ?? "";
+
+    if (!accessToken.isNullOrEmp()) {
       options.headers['Authorization'] = 'Bearer $accessToken';
+      debugPrint("accessToken");
+    } else {
+      debugPrint("Error in [ONREQUEST]");
     }
     return handler.next(options);
   }
@@ -29,28 +37,26 @@ class ApiInterceptorsWrapper extends Interceptor {
       "ERORR[${err.response?.statusCode}] => PATH : ${err.requestOptions.path}",
     );
 
+    // err.requestOptions.path.contains(Routes.login) &&
+    // err.requestOptions.path.contains(Routes.signUp)
     if (err.response?.statusCode == 401) {
-      final responseRefreshToken = await SaveTheToken.getData(
-        Token.refreshToken.toString(),
-      );
-      // if (responseRefreshToken.isNotNullOrEmp()) {
-      // handler.reject(err);
+      final refreshResult = await refreshToken(dio: dio);
 
-      final response = await refreshToken(refreshToken: responseRefreshToken);
-      if (response is Success<String>) {
-        await SaveTheToken.deleteItem(token: Token.accesToken.toString());
+      if (refreshResult is Success<String>) {
         RequestOptions requestOptions = err.requestOptions;
-        await SaveTheToken.updateAccessToken(response.data.toString());
-        String saveAccessToken = await SaveTheToken.getData(
-          Token.accesToken.toString(),
+        await SaveTheToken.setData(
+          key: Token.accesToken.name,
+          value: refreshResult.data ?? "",
         );
-        requestOptions.headers['Authorization'] = "Bearer $saveAccessToken";
+        requestOptions.headers['Authorization'] =
+            "Bearer ${refreshResult.data}";
 
-        Response resposn = await dio.fetch(requestOptions);
-        return handler.resolve(resposn);
-      } else if (response is Failure<String>) {
+        return handler.resolve(await dio.fetch(requestOptions));
+      } else if (refreshResult is Failure<String>) {
         //   //! Delete [Access_token] Or [Refresh_token]
-        await SaveTheToken.deleteAllData();
+
+        await SaveTheToken.deleteItem(key: Token.accesToken.name);
+        await SaveTheToken.deleteItem(key: Token.refreshToken.name);
         return handler.reject(err);
       }
     }
@@ -65,13 +71,18 @@ class ApiInterceptorsWrapper extends Interceptor {
   }
 
   Future<ApiResulte<String>> refreshToken({
-    required String refreshToken,
+    // required String refreshToken,
+    required Dio dio,
   }) async {
+    final responseRefreshToken = await SaveTheToken.getData(
+      Token.refreshToken.name,
+    );
     try {
       final response = await dio.post(
-        "${ApiConstants.baseUrl}/token/refresh/",
-        data: {"refresh": refreshToken},
+        '${ApiConstants.baseUrl}token/refresh/',
+        data: {'refresh': responseRefreshToken},
       );
+
       return ApiResulte.success(response.data["access"]);
     } catch (e) {
       return ApiResulte.failure(ApiErrorHandler.apiHundle(e));
