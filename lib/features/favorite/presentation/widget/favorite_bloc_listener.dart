@@ -55,16 +55,14 @@ class _FavoriteBlocListenerState extends State<FavoriteBlocListener> {
 
   Widget _buildLoadingState() {
     // return Center(child: CircularProgressIndicator());
-    return Expanded(
-      child: AppListView(
-        itemCount: context.read<FavoriteCubit>().listFavorite.length,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: EdgeInsetsGeometry.only(bottom: context.screenHeight / 20),
-            child: FavoriteShimmerLoading(),
-          );
-        },
-      ),
+    return AppListView(
+      itemCount: context.read<FavoriteCubit>().listFavorite.length,
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: EdgeInsetsGeometry.only(bottom: context.screenHeight / 20),
+          child: FavoriteShimmerLoading(),
+        );
+      },
     );
   }
 
@@ -84,6 +82,6 @@ class _FavoriteBlocListenerState extends State<FavoriteBlocListener> {
             ],
           ),
         )
-        : Expanded(child: ListViewFavorite(listFavorite: state.listFavorite));
+        : ListViewFavorite(listFavorite: state.listFavorite);
   }
 }
