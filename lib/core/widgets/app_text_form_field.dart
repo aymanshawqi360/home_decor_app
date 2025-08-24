@@ -45,8 +45,8 @@ class AppTextFormField extends StatelessWidget {
     return TextFormField(
       autofocus: autofocus ?? false,
       controller: controller,
-      style: TextStyle(color: ColorsMananger.darkGrayishBrown),
-      cursorColor: cursorColor ?? ColorsMananger.darkGrayishBrown,
+      style: TextStyle(color: ColorsManager.darkGrayishBrown),
+      cursorColor: cursorColor ?? ColorsManager.darkGrayishBrown,
       decoration: InputDecoration(
         contentPadding:
             contentPadding ??
@@ -54,13 +54,13 @@ class AppTextFormField extends StatelessWidget {
         enabledBorder:
             enabledBorder ??
             OutlineInputBorder(
-              borderSide: BorderSide(color: ColorsMananger.linen, width: 2.0),
+              borderSide: BorderSide(color: ColorsManager.linen, width: 2.0),
               borderRadius: BorderRadius.circular(25),
             ),
         focusedBorder:
             focusedBorder ??
             OutlineInputBorder(
-              borderSide: BorderSide(color: ColorsMananger.linen, width: 2.0),
+              borderSide: BorderSide(color: ColorsManager.linen, width: 2.0),
               borderRadius: BorderRadius.circular(25),
             ),
 
@@ -78,7 +78,7 @@ class AppTextFormField extends StatelessWidget {
 
         isDense: true,
         filled: true,
-        fillColor: fillColor ?? ColorsMananger.linen,
+        fillColor: fillColor ?? ColorsManager.linen,
 
         hintText: hintText ?? "example@example.com",
         hintStyle: hintStyle ?? TextStyles.font14LightBeigepinkRegular(context),
