@@ -13,7 +13,6 @@ class ListViewFavorite extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppListView(
-      shrinkWrap: true,
       itemCount: listFavorite.length,
       itemBuilder: (context, index) {
         return Padding(
