@@ -130,7 +130,7 @@ class _SignUpFormState extends State<SignUpForm> {
               return AppTextFormField(
                 controller: constantPassword,
                 obscureText:
-                    (state is SingUpisPasseord) ? state.isPasseord : false,
+                    (state is SingUpisPasseord) ? state.isPasseord : true,
                 suffixIcon: VisibilityInTextFromField(
                   onTap: () {
                     context.read<SignUpCubit>().cheackIsPassword();
@@ -161,7 +161,8 @@ class _SignUpFormState extends State<SignUpForm> {
                 obscureText:
                     (state is SignUpisConfirmPasseord)
                         ? state.isConfirmPasseord
-                        : false,
+                        : true,
+
                 suffixIcon: VisibilityInTextFromField(
                   onTap: () {
                     context.read<SignUpCubit>().cheackIsConfirmPassword();
