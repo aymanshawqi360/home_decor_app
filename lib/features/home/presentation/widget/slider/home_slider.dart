@@ -25,37 +25,61 @@ class _HomeSliderState extends State<HomeSlider> {
                 current is SliderSuccess ||
                 current is SliderFailure,
         builder: (context, state) {
-          switch (state.runtimeType) {
-            case SliderLoading:
-              final sliderLoadingLength = state as SliderLoading;
-              return Center(
-                child: SliderShimmerLoading(
-                  sliderList: sliderLoadingLength.silderLoadingLength,
-                ),
-              );
-            case SliderSuccess:
-              final sliderState = state as SliderSuccess;
-              return SliderPageViewSuccess(sliderState.sliderList);
+          switch (state) {
+            case SliderLoading():
+              // final sliderLoadingLength = state as SliderLoading;
+              return _buildLoadingState(state);
+            case SliderSuccess():
+              // final sliderState = state as SliderSuccess;
+              return _buildSuccessState(state);
+            // SliderPageViewSuccess(sliderState.sliderList);
 
-            case SliderFailure:
+            case SliderFailure():
               //  final failureState = state as SliderFailure;
-              return Center(
-                child: AspectRatio(
-                  aspectRatio: 16 / 7,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(12),
-                    child: Image.asset(
-                      AppAssets.imageAndSvg.imageNotAvailable,
+              return _buildFailureState();
+            // Center(
+            //   child: AspectRatio(
+            //     aspectRatio: 16 / 7,
+            //     child: ClipRRect(
+            //       borderRadius: BorderRadius.circular(12),
+            //       child: Image.asset(
+            //         AppAssets.imageAndSvg.imageNotAvailable,
 
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-              );
+            //         fit: BoxFit.fill,
+            //       ),
+            //     ),
+            //   ),
+            // );
             default:
               return SizedBox.shrink();
           }
         },
+      ),
+    );
+  }
+
+  Widget _buildLoadingState(SliderLoading state) {
+    return Center(
+      child: SliderShimmerLoading(sliderList: state.silderLoadingLength),
+    );
+  }
+
+  Widget _buildSuccessState(SliderSuccess state) {
+    return SliderPageViewSuccess(state.sliderList);
+  }
+
+  Widget _buildFailureState() {
+    return Center(
+      child: AspectRatio(
+        aspectRatio: 16 / 7,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(12),
+          child: Image.asset(
+            AppAssets.imageAndSvg.imageNotAvailable,
+
+            fit: BoxFit.fill,
+          ),
+        ),
       ),
     );
   }
