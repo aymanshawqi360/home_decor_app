@@ -4,9 +4,9 @@ part 'login_response_model.g.dart';
 @JsonSerializable()
 class LoginResponseModel {
   User? user;
-  @JsonKey(name: "access_token")
+  @JsonKey(name: "access")
   String? accessToken;
-  @JsonKey(name: "refresh_token")
+  @JsonKey(name: "refresh")
   String? refreshToken;
   LoginResponseModel({this.accessToken, this.refreshToken, this.user});
   factory LoginResponseModel.fromJson(Map<String, dynamic> json) =>
