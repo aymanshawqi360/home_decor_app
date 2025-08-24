@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:home_decor_app/core/di/dependency_injection.dart';
 import 'package:home_decor_app/core/helper/app_assets.dart';
 import 'package:home_decor_app/core/helper/extensions.dart';
 import 'package:home_decor_app/core/helper/spacing.dart';
 import 'package:home_decor_app/core/routes/routes.dart';
 import 'package:home_decor_app/core/theme/colors.dart';
 import 'package:home_decor_app/core/theme/styles.dart';
+import 'package:home_decor_app/features/favorite/presentation/cubit/cubit/favorite_cubit.dart';
 import 'package:home_decor_app/features/home/presentation/widget/best_seller/best_seller_bloc_builder.dart';
 import 'package:home_decor_app/features/home/presentation/widget/categories_list/categories_bloc_builder.dart';
 import 'package:home_decor_app/features/home/presentation/widget/new_collection/new_collection_bloc_builder.dart';
 import 'package:home_decor_app/features/home/presentation/widget/show_more/caregories_and_show_more.dart';
 import 'package:home_decor_app/features/home/presentation/widget/show_more_best_seller/show_more_best_seller.dart';
 import 'package:home_decor_app/features/home/presentation/widget/slider/home_slider.dart';
+import 'package:home_decor_app/features/search/presentation/cubit/search_cubit.dart';
+import 'package:home_decor_app/features/search/presentation/pages/search_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -33,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
           child: Column(
             children: [
-              HomeSlider(),
+              const HomeSlider(),
 
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,6 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   AppBar _loginAppBar(BuildContext context) => AppBar(
+    surfaceTintColor: Colors.transparent,
     title: Column(
       children: [
         Row(
@@ -87,10 +93,31 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             GestureDetector(
               onTap: () {
-                context.pushNamed(Routes.search);
+                //context.pushNamed(Routes.search);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (_) => MultiBlocProvider(
+                          providers: [
+                            BlocProvider(
+                              create:
+                                  (context) =>
+                                      SearchCubit(getIt())
+                                        ..getFilterResult()
+                                        ..getApiSettings(),
+                            ),
+                            BlocProvider.value(
+                              value: FavoriteCubit.get(context),
+                            ),
+                          ],
+                          child: SearchScreen(),
+                        ),
+                  ),
+                );
               },
               child: CircleAvatar(
-                backgroundColor: ColorsMananger.ligthPink,
+                backgroundColor: ColorsManager.ligthPink,
                 child: SvgPicture.asset(
                   AppAssets.imageAndSvg.searchIcon,
                   width: context.screenWidth / 40,
