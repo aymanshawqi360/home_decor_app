@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:home_decor_app/core/networks/app_string.dart';
+import 'package:home_decor_app/core/helper/app_string.dart';
 import 'package:home_decor_app/core/routes/app_router.dart';
 import 'package:home_decor_app/core/routes/routes.dart';
 import 'package:home_decor_app/core/theme/colors.dart';
@@ -22,8 +22,8 @@ class HomeDecorApp extends StatelessWidget {
           title: 'Home Decor App',
 
           theme: ThemeData(
-            scaffoldBackgroundColor: ColorsMananger.white,
-            appBarTheme: AppBarTheme(color: ColorsMananger.white),
+            scaffoldBackgroundColor: ColorsManager.white,
+            appBarTheme: AppBarTheme(color: ColorsManager.white),
             // textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
           ),
           initialRoute:
