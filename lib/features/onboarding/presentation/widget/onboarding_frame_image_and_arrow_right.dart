@@ -24,7 +24,7 @@ class OnboardingFrameAndImageAndArrowRight extends StatelessWidget {
           height: 480.h,
 
           decoration: BoxDecoration(
-            color: ColorsMananger.linen,
+            color: ColorsManager.linen,
             borderRadius: BorderRadius.only(bottomLeft: Radius.circular(34.r)),
           ),
         ),
