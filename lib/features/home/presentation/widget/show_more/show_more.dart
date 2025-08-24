@@ -14,12 +14,12 @@ class ShowMore extends StatelessWidget {
       width: context.screenWidth,
       height: context.screenHeight / 5.5,
       decoration: BoxDecoration(
-        color: ColorsMananger.ligthBrown,
+        color: ColorsManager.ligthBrown,
         borderRadius: BorderRadius.circular(8),
       ),
       child: CachedNetworkImage(
         imageUrl: category.icon.toString(),
-        color: ColorsMananger.linen,
+        color: ColorsManager.linen,
 
         errorWidget: (context, url, error) {
           return Icon(Icons.error, color: Colors.red);
