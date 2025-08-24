@@ -34,8 +34,8 @@ class WidgetWrap extends StatelessWidget {
                   color:
                       cubit.resultlistSearchSubCategoriesEntity[index].id ==
                               cubit.subCategoryId
-                          ? ColorsMananger.ligthBrown
-                          : ColorsMananger.ligthPink,
+                          ? ColorsManager.ligthBrown
+                          : ColorsManager.ligthPink,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: GestureDetector(
