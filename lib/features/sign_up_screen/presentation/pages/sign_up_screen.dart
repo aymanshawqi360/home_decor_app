@@ -22,18 +22,15 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: _loginAppBar(context),
 
       body: Padding(
         padding: EdgeInsets.only(
-          // left: MediaQuery.sizeOf(context).longestSide,
-          left: 31.w,
-          // top: MediaQuery.sizeOf(context).height / 50,
-          top: 37.h,
-          // right: MediaQuery.sizeOf(context).width / 13,
-          right: 31.w,
-          // bottom: MediaQuery.sizeOf(context).height / 20,
-          bottom: 32.h,
+          left: context.screenWidth / 13,
+          // right: 31.w,
+          right: context.screenWidth / 13,
+          bottom: context.screenHeight / 50,
         ),
         child: SingleChildScrollView(
           child: Column(
@@ -105,6 +102,7 @@ class SignUpScreen extends StatelessWidget {
   }
 
   AppBar _loginAppBar(BuildContext context) => AppBar(
+    surfaceTintColor: Theme.of(context).scaffoldBackgroundColor,
     title: Text(
       textScaler: TextScaler.linear(1.0),
       "Create Account",
