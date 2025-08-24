@@ -5,16 +5,16 @@ import 'package:home_decor_app/core/networks/api_constants.dart';
 class SaveTheToken {
   static final _storage = FlutterSecureStorage();
 
-  static setData({
-    required String accessToken,
-    required String refreshToken,
-  }) async {
+  static setData({required String key, required String value}) async {
     debugPrint("set Data => The Key Boon Entered :");
-    await _storage.write(key: Token.accesToken.name, value: accessToken);
-    await _storage.write(key: Token.refreshToken.name, value: refreshToken);
+    await _storage.write(key: key, value: value);
+    // await _storage.write(
+    //   key: Token.refreshToken.name,
+    //   value: refreshToken ?? "",
+    // );
   }
 
-  static Future<String> getData(String key) async {
+  static Future<String?> getData(String key) async {
     debugPrint("get Data => Saved Token :");
     return await _storage.read(key: key) ?? "";
   }
@@ -31,8 +31,8 @@ class SaveTheToken {
     await _storage.deleteAll();
   }
 
-  static deleteItem({required String token}) async {
+  static deleteItem({required String key}) async {
     debugPrint("delete Item => Delete Data Been   :");
-    await _storage.delete(key: token);
+    await _storage.delete(key: key);
   }
 }
