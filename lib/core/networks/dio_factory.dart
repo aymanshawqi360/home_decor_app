@@ -18,6 +18,7 @@ class DioFactory {
         ..options.receiveTimeout = timeOut;
 
       addDioInterceptor();
+      //  dio!.interceptors.add(ApiInterceptorsWrapper(dio: dio!));
       return dio!;
     } else {
       return dio!;
@@ -32,8 +33,9 @@ class DioFactory {
         responseHeader: true,
       ),
     );
-    // dio?.interceptors.add(ApiInterceptorsWrapper(dio));
-    ApiInterceptorsWrapper(dio: dio!);
+    // ApiInterceptorsWrapper(dio: dio!);
+    dio?.interceptors.add(ApiInterceptorsWrapper(dio: dio!));
+
     // dio?.interceptors.add(ApiInterceptorsWrapper(dio: dio!));
   }
 }
