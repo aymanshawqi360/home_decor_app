@@ -29,11 +29,11 @@ class SearchCubit extends Cubit<SearchState> {
 
     final response = await _searchUseCases.getSearch(
       SearchRequestBodyModelEntity(
-        colorId: color ?? null,
-        maxPrice: max ?? null,
-        minPrice: min ?? null,
+        colorId: color,
+        maxPrice: max,
+        minPrice: min,
         searchQuery: query,
-        subCategoryId: sub ?? null,
+        subCategoryId: sub,
       ),
     );
 
