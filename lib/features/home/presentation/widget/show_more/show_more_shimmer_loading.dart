@@ -26,11 +26,11 @@ class ShowMoreShimmerLoading extends StatelessWidget {
               width: context.screenWidth,
               height: context.screenHeight / 5.5,
               decoration: BoxDecoration(
-                color: ColorsMananger.ligthBrown,
+                color: ColorsManager.ligthBrown,
                 // border: Border.all(color: Colors.grey),
                 borderRadius: BorderRadius.circular(8),
               ),
-              child: Image.network("", color: ColorsMananger.lightBeigepink),
+              child: Image.network("", color: ColorsManager.lightBeigepink),
             ),
             verticalSpace(5),
             Text("ShimmerText", style: TextStyles.font10DarkGrayishBrownMedium),
