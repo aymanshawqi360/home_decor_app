@@ -50,7 +50,7 @@ class SearchOfLoadingShimmerProduct extends StatelessWidget {
                 ),
               ),
 
-              const Divider(color: ColorsMananger.ligthPink),
+              const Divider(color: ColorsManager.ligthPink),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
